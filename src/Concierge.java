@@ -2,9 +2,26 @@ import java.util.ArrayList;
 
 public class Concierge implements PapotageListener{
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
+    private String pseudo;
+
+
+
+    public Concierge(String pseudo){
+        this.pseudo=pseudo;
+    }
 
     public void addPapotageListener(PapotageListener pl){
         destinataires.add(pl);
+    }
+
+    public void removePapotageListener(PapotageListener pl){
+        if(this.destinataires.contains(pl)){
+            this.destinataires.remove(pl);
+            System.out.println("Bavard bien retiré du concierge");
+        }
+        else{
+            System.out.println("Ce bavard n'est pas connecté");
+        }
     }
 
     @Override

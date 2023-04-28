@@ -11,8 +11,23 @@ public class Bavard implements PapotageListener{
         this.password = password;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public void addPapotageListener(PapotageListener pl){
         destinataires.add(pl);
+    }
+
+
+    public void removePapotageListener(PapotageListener pl){
+        if(this.destinataires.contains(pl)){
+            this.destinataires.remove(pl);
+            System.out.println("Concierge bien retiré de ce bavard");
+        }
+        else{
+            System.out.println("Concierge n'est pas connecté");
+        }
     }
     @Override
     public void newMessage(PapotageEvent event) {
