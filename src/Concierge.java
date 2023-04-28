@@ -9,13 +9,20 @@ public class Concierge implements PapotageListener{
 
     @Override
     public void newMessage(PapotageEvent event) {
+        String sujet = event.getSujet();
+        String text = event.getText();
         System.out.println("Le concierge a bien recu le message.");
-        System.out.println(event.getSujet());
-        System.out.println(event.getText());
+        System.out.println(sujet);
+        System.out.println(text);
+        this.generateMessage(sujet, text);
     }
 
     @Override
     public void generateMessage(String sujet, String text) {
+        PapotageEvent message = new PapotageEvent(this, sujet, text);
+        for (PapotageListener p : destinataires) {
+            p.newMessage(message);
 
+        }
     }
 }
