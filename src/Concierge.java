@@ -26,6 +26,7 @@ public class Concierge implements PapotageListener{
 
     @Override
     public void newMessage(PapotageEvent event) {
+        //MODIFIER ICI
         String sujet = event.getSujet();
         String text = event.getText();
         System.out.println("Le concierge a bien recu le message.");

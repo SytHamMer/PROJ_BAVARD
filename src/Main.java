@@ -7,7 +7,8 @@ public class Main {
         Bavard mathys = new Bavard("Mathys","dr(sd-ftèyg_huiojp");
         polytech.addBavards(mathys);
         Bavard lila = polytech.getBavard("Lila");
-        lila.generateMessage("Test","Mathys je te trouve très gentil mais franchement t pa bo");
+        polytech.addBavards("Sorana_Cimpan","uigyvuftèygui");
+        lila.generateMessage("Test","Ceci est mon message");
 
     }
 }

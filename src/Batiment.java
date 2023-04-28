@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Batiment {
-
+    //faire une version où les bavards peuvent choisir de recevoir ou non les messages du batiment
     private ArrayList<Bavard> bavards = new ArrayList<>();
     private String nom;
     private Concierge concierge;
@@ -35,7 +35,6 @@ public class Batiment {
     public Bavard getBavard(String pseudo) {
         int cpt = 0;
         while (cpt<bavards.size()){
-            System.out.println(cpt);
             if(this.bavards.get(cpt).getUsername()==pseudo){
                 return this.bavards.get(cpt);
             }
@@ -53,7 +52,6 @@ public class Batiment {
     public Bavard getBavard(Bavard b){
         int cpt = 0;
         while (cpt<bavards.size()){
-            System.out.println(cpt);
             if(this.bavards.get(cpt)==b){
                 return this.bavards.get(cpt);
             }
