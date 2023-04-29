@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Bavard implements PapotageListener{
+public class Bavard implements PapotageListener {
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
     private String username;
 
@@ -34,12 +34,14 @@ public class Bavard implements PapotageListener{
         System.out.println(this.username + " a bien recu le message.");
         System.out.println(event.getSujet());
         System.out.println(event.getText());
+        System.out.println("Ecrit par : "+ event.getBavard());
 
     }
 
+
     @Override
-    public void generateMessage(String sujet, String text){
-        PapotageEvent message = new PapotageEvent(this, sujet, text );
+    public void generateMessage(String sujet, String text,String author){
+        PapotageEvent message = new PapotageEvent(this, sujet, text,this.getUsername() );
         for (PapotageListener p : destinataires){
             p.newMessage(message);
         }
