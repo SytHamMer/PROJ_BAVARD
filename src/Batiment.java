@@ -73,8 +73,8 @@ public class Batiment {
     }
 
     //Création d'un nouveau bavard directement dans ce batiment
-    public void addBavards(String username,String password){
-        Bavard b = new Bavard(username, password);
+    public void addBavards(String username,String password,boolean connected){
+        Bavard b = new Bavard(username, password,connected);
         this.bavards.add(b);
         this.concierge.addPapotageListener(b);
         this.getBavard(b).addPapotageListener(this.concierge);
