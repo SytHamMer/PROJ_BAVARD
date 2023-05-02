@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Bavard implements PapotageListener {
+public class Bavard implements PapotageListener, OnlineBavardListener {
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
+
+    private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
+
     private String username;
 
     private String password;
@@ -93,4 +96,22 @@ public class Bavard implements PapotageListener {
 
     }
 
+    @Override
+    public void newOnlineBavard(OnlineBavardEvent obl) {
+        Bavard b = obl.getB();
+        String nom = b.getUsername();
+        System.out.println("Le bavard : " + nom + "s'est connecté.");
+        OnlineBavardEvent online = new OnlineBavardEvent(this, b);
+        for (OnlineBavardListener onlineOne : onlineBavards) {
+            onlineOne.newOnlineBavard(online);
+        }
+
+    }
+    public void generateNewOnlineBavard(Bavard b) {
+        OnlineBavardEvent online = new OnlineBavardEvent(this, b);
+        for (OnlineBavardListener obl : onlineBavards) {
+            obl.newOnlineBavard(online);
+        }
+    }
 }
+

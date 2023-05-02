@@ -5,10 +5,10 @@ public class Main {
         polytech.setConcierge("Concierge","pdw");
         polytech.addBavards("test","test",false);
         polytech.addBavards("Lila","Lila_mdp",true);
-        Bavard mathys = new Bavard("Mathys","dr(sd-ftèyg_huiojp",true);
+        Bavard mathys = new Bavard("Mathys","lpb",true);
         polytech.addBavards(mathys);
         Bavard lila = polytech.getBavard("Lila");
-        polytech.addBavards("Sorana_Cimpan","uigyvuftèygui",true);
+        polytech.addBavards("Sorana_Cimpan","sorana",true);
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
         mathys.generateMessage("Chiant", "quoicoube", mathys.getUsername());
 

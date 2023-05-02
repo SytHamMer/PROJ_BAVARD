@@ -90,26 +90,31 @@ public class BavardInterface extends JFrame {
 
 
 
-
+        JPanel buttons = new JPanel();
+        JButton disconnectBtn = new JButton("Deconexion");
         JButton writeBtn = new JButton("Ecrire message"); //Bouton opur passer à l'interface d'ecriture
-        this.add("East", writeBtn);
-
+        buttons.add(disconnectBtn);
+        buttons.add(writeBtn);
+        this.add("East", buttons);
+        disconnectBtn.addActionListener(e-> disconnect());
         writeBtn.addActionListener(e -> changePage());
 
 
         this.setVisible(true);
     }
 
+    public void disconnect(){
+        //Déconnecter le bavard VOIR SI FAIRE AVEC event
+        this.dispose();
+    }
     public void changePage(){
-        System.out.println("changePage");
+
         boolean defaultInterface;
         if (this.isDefaultInterface){
-            System.out.println("Going to add subject");
             this.setDefaultInterface(false);
             defaultInterface = false;
         }
         else{
-            System.out.println("Going to read subject");
             this.setDefaultInterface(true);
             defaultInterface = true;
         }

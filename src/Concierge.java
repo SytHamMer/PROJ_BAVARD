@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Concierge implements PapotageListener{
+public class Concierge implements PapotageListener, OnlineBavardListener {
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
+
+    private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
     private String pseudo;
 
     private String password;
-    private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
+    private ArrayList<HashMap<String, String>> messageReceived = new ArrayList<>();
 
-    public Concierge(String pseudo,String password){
-        this.pseudo=pseudo;
+    public Concierge(String pseudo, String password) {
+        this.pseudo = pseudo;
         this.password = password;
     }
 
@@ -32,19 +34,20 @@ public class Concierge implements PapotageListener{
     public ArrayList<HashMap<String, String>> getMessageReceived() {
         return messageReceived;
     }
-    public void addMessageReceived(HashMap<String,String> messageReceived){
+
+    public void addMessageReceived(HashMap<String, String> messageReceived) {
         this.messageReceived.add(messageReceived);
     }
-    public void addPapotageListener(PapotageListener pl){
+
+    public void addPapotageListener(PapotageListener pl) {
         destinataires.add(pl);
     }
 
-    public void removePapotageListener(PapotageListener pl){
-        if(this.destinataires.contains(pl)){
+    public void removePapotageListener(PapotageListener pl) {
+        if (this.destinataires.contains(pl)) {
             this.destinataires.remove(pl);
             System.out.println("Bavard bien retiré du concierge");
-        }
-        else{
+        } else {
             System.out.println("Ce bavard n'est pas connecté");
         }
     }
@@ -54,20 +57,20 @@ public class Concierge implements PapotageListener{
     }
 
     @Override
-    public HashMap<String,String> saveMessage(PapotageEvent event) {
+    public HashMap<String, String> saveMessage(PapotageEvent event) {
         //MODIFIER ICI
-        HashMap<String,String> bavardage = new HashMap<>();
+        HashMap<String, String> bavardage = new HashMap<>();
         String sujet = event.getSujet();
         String text = event.getText();
         String author = event.getBavard();
-        bavardage.put("sujet",sujet);
-        bavardage.put("text",text);
-        bavardage.put("auteur",author);
+        bavardage.put("sujet", sujet);
+        bavardage.put("text", text);
+        bavardage.put("auteur", author);
 
         System.out.println("Le concierge a bien recu le message.");
         System.out.println(sujet);
         System.out.println(text);
-        System.out.println("FROM:"+author);
+        System.out.println("FROM:" + author);
 
 
         for (PapotageListener p : destinataires) {
@@ -80,11 +83,31 @@ public class Concierge implements PapotageListener{
     }
 
     @Override
-    public void generateMessage(String sujet, String text,String author) {
-        PapotageEvent message = new PapotageEvent(this, sujet, text,author);
+    public void generateMessage(String sujet, String text, String author) {
+        PapotageEvent message = new PapotageEvent(this, sujet, text, author);
         for (PapotageListener p : destinataires) {
             p.newMessage(message);
 
+        }
+    }
+
+
+    @Override
+    public void newOnlineBavard(OnlineBavardEvent obl) {
+        Bavard b = obl.getB();
+        String nom = b.getUsername();
+        System.out.println("Le bavard : " + nom + "s'est connecté.");
+        OnlineBavardEvent online = new OnlineBavardEvent(this, b);
+        for (OnlineBavardListener onlineOne : onlineBavards) {
+            onlineOne.newOnlineBavard(online);
+        }
+
+    }
+
+    public void generateNewOnlineBavard(Bavard b) {
+        OnlineBavardEvent online = new OnlineBavardEvent(this, b);
+        for (OnlineBavardListener obl : onlineBavards) {
+            obl.newOnlineBavard(online);
         }
     }
 }

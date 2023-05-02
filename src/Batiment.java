@@ -6,6 +6,9 @@ public class Batiment {
 
     private String nom;
     private Concierge concierge;
+
+
+    private ArrayList<Bavard> OnlineBavard = new ArrayList<>();
     //Permet de récupérer l'état du dernier essai
     private boolean lastAddBavardTry;
 
@@ -14,6 +17,13 @@ public class Batiment {
         this.concierge = c;
     }
 
+    public ArrayList<Bavard> getOnlineBavard() {
+        return OnlineBavard;
+    }
+
+    public void addOnlineBavard(Bavard b){
+        this.getOnlineBavard().add(b);
+    }
     public boolean isLastAddBavardTry() {
         return lastAddBavardTry;
     }

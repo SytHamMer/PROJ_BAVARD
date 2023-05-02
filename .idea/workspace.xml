@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[ADD]: Link BavardInterface to ConnexionInterface and open windows with all the message when you click on it">
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[ADD]: BavardInterface works, Switch between listPage and addMessagePage and creation of message">
+      <change afterPath="$PROJECT_DIR$/src/OnlineBavardEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OnlineBavardListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConnexionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnexionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Concierge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Concierge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -150,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683020465727</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[ADD]: BavardInterface works, Switch between listPage and addMessagePage and creation of message">
+      <created>1683026926212</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683026926212</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,6 +188,7 @@
     <MESSAGE value="[ADD]: Interface Concierge + new argument messageReceived for concierge" />
     <MESSAGE value="[ADD]: Debut Interface Bavard (liste messages + texte raccourci)" />
     <MESSAGE value="[ADD]: Link BavardInterface to ConnexionInterface and open windows with all the message when you click on it" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ADD]: Link BavardInterface to ConnexionInterface and open windows with all the message when you click on it" />
+    <MESSAGE value="[ADD]: BavardInterface works, Switch between listPage and addMessagePage and creation of message" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADD]: BavardInterface works, Switch between listPage and addMessagePage and creation of message" />
   </component>
 </project>
