@@ -3,6 +3,7 @@ public class Main {
 
         Batiment polytech = new Batiment();
         polytech.setConcierge("Concierge","pdw");
+        polytech.addBavards("test","test",false);
         polytech.addBavards("Lila","Lila_mdp",true);
         Bavard mathys = new Bavard("Mathys","dr(sd-ftèyg_huiojp",true);
         polytech.addBavards(mathys);
@@ -11,11 +12,10 @@ public class Main {
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
         mathys.generateMessage("Chiant", "quoicoube", mathys.getUsername());
 
-        //ConnexionInterface mainFrame = new ConnexionInterface(polytech);
+        ConnexionInterface mainFrame = new ConnexionInterface(polytech);
 
-        System.out.println(polytech.getConcierge().getMessageReceived());
 
         //ConciergeInterface mainFrame = new ConciergeInterface(polytech);
-        BavardInterface bavardFrame = new BavardInterface(lila);
+        //BavardInterface bavardFrame = new BavardInterface(lila);
     }
 }
