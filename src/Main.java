@@ -11,10 +11,11 @@ public class Main {
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
         mathys.generateMessage("Chiant", "quoicoube", mathys.getUsername());
 
-        ConnexionInterface mainFrame = new ConnexionInterface(polytech);
+        //ConnexionInterface mainFrame = new ConnexionInterface(polytech);
 
         System.out.println(polytech.getConcierge().getMessageReceived());
 
         //ConciergeInterface mainFrame = new ConciergeInterface(polytech);
+        BavardInterface bavardFrame = new BavardInterface(lila);
     }
 }
