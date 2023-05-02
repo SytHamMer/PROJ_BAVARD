@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Bavard implements PapotageListener {
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
@@ -6,9 +7,21 @@ public class Bavard implements PapotageListener {
 
     private String password;
 
-    public Bavard(String username, String password) {
+    private boolean isConnected;
+
+    public Bavard(String username, String password,boolean isConnected) {
         this.username = username;
         this.password = password;
+        this.isConnected = isConnected;
+
+    }
+
+    public boolean isConnected() {
+        return isConnected;
+    }
+
+    public void setConnected(boolean connected) {
+        isConnected = connected;
     }
 
     public String getUsername() {
@@ -38,12 +51,17 @@ public class Bavard implements PapotageListener {
 
     }
 
+    @Override
+    public HashMap<String, String> saveMessage(PapotageEvent event) {
+        return null;
+    }
+
 
     @Override
     public void generateMessage(String sujet, String text,String author){
         PapotageEvent message = new PapotageEvent(this, sujet, text,this.getUsername() );
         for (PapotageListener p : destinataires){
-            p.newMessage(message);
+            p.saveMessage(message);
         }
 
     }

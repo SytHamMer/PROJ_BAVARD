@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Concierge implements PapotageListener{
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
@@ -26,10 +27,19 @@ public class Concierge implements PapotageListener{
 
     @Override
     public void newMessage(PapotageEvent event) {
+    }
+
+    @Override
+    public HashMap<String,String> saveMessage(PapotageEvent event) {
         //MODIFIER ICI
+        HashMap<String,String> bavardage = new HashMap<>();
         String sujet = event.getSujet();
         String text = event.getText();
         String author = event.getBavard();
+        bavardage.put("sujet",sujet);
+        bavardage.put("text",text);
+        bavardage.put("auteur",author);
+
         System.out.println("Le concierge a bien recu le message.");
         System.out.println(sujet);
         System.out.println(text);
@@ -37,6 +47,7 @@ public class Concierge implements PapotageListener{
 
 
         this.generateMessage(sujet, text,author);
+        return bavardage;
     }
 
     @Override
