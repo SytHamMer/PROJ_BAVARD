@@ -1,4 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -26,6 +31,27 @@ public class BavardInterface extends JFrame {
             modeleList.add("[" + sujet + "] " + auteur + " : " + texte);
         }
         JList messList = new JList<>(modeleList.toArray());
+        messList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if(!e.getValueIsAdjusting()){
+                    //Traitement lorsque que l'on selectionne une élément de la liste
+                    String selectedMessage = (String) messList.getSelectedValue();
+                    System.out.println(selectedMessage);
+                    String selectedSujet = selectedMessage.substring(selectedMessage.indexOf("[")+1,selectedMessage.indexOf("]"));
+                    System.out.println(selectedSujet);
+                    for (HashMap<String,String> m:messages){
+                        if(m.get("sujet").equals(selectedSujet)){
+                            String message = "Sujet :" + m.get("sujet") + "\n" + m.get("text") + "\n\n Ecrit par :" + m.get("auteur");
+
+                            JOptionPane.showMessageDialog(null,message);
+
+                        }
+                    }
+                }
+            }
+        });
+
         this.add(messList);
 
 

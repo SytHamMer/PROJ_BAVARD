@@ -16,5 +16,6 @@ public class Main {
         System.out.println(polytech.getConcierge().getMessageReceived());
 
         //ConciergeInterface mainFrame = new ConciergeInterface(polytech);
+        //BavardInterface mainFrame = new BavardInterface(lila);
     }
 }
