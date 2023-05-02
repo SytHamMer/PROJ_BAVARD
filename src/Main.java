@@ -10,5 +10,6 @@ public class Main {
         polytech.addBavards("Sorana_Cimpan","uigyvuftèygui",true);
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
 
+        ConnexionInterface mainFrame = new ConnexionInterface();
     }
 }
