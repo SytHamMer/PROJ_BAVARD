@@ -18,6 +18,10 @@ public class Bavard implements PapotageListener {
 
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public ArrayList<HashMap<String, String>> getMessageReceived() {
         return messageReceived;
     }

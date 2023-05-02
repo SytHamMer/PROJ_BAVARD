@@ -4,10 +4,29 @@ import java.util.HashMap;
 public class Concierge implements PapotageListener{
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
     private String pseudo;
+
+    private String password;
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
 
-    public Concierge(String pseudo){
+    public Concierge(String pseudo,String password){
         this.pseudo=pseudo;
+        this.password = password;
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public ArrayList<HashMap<String, String>> getMessageReceived() {

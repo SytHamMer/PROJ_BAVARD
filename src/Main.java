@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         Batiment polytech = new Batiment();
-        polytech.setConcierge("Concierge");
+        polytech.setConcierge("Concierge","pdw");
         polytech.addBavards("Lila","Lila_mdp",true);
         Bavard mathys = new Bavard("Mathys","dr(sd-ftèyg_huiojp",true);
         polytech.addBavards(mathys);
@@ -11,10 +11,10 @@ public class Main {
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
         mathys.generateMessage("Chiant", "quoicoube", mathys.getUsername());
 
-        //ConnexionInterface mainFrame = new ConnexionInterface();
+        ConnexionInterface mainFrame = new ConnexionInterface(polytech);
 
         System.out.println(polytech.getConcierge().getMessageReceived());
 
-        ConciergeInterface mainFrame = new ConciergeInterface(polytech);
+        //ConciergeInterface mainFrame = new ConciergeInterface(polytech);
     }
 }

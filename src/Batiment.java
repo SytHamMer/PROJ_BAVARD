@@ -30,8 +30,8 @@ public class Batiment {
         return concierge;
     }
 
-    public void setConcierge(String pseudo){
-        this.concierge= new Concierge(pseudo);
+    public void setConcierge(String pseudo,String password){
+        this.concierge= new Concierge(pseudo,password);
 
     }
 

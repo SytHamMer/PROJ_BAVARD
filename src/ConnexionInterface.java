@@ -17,17 +17,38 @@ public class ConnexionInterface extends JFrame {
 
         signIn.addActionListener(e-> {
             String login = loginTf.getText();
+            String password = pwdTf.getText();
 
+            //Modifier cas plusieurs concierges
+            if (login.equals("Concierge")){
+                if (password.equals(batiment.getConcierge().getPassword())){
+                    //Se connecter à la page concierge
+                    System.out.println("Concierge connecté");
+                    ConciergeInterface conciergeInterface = new ConciergeInterface(batiment);
+                    conciergeInterface.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Ce n'est pas le mot de passe du concierge");
+                }
+            }
+            else{
             if (batiment.getBavard(login) != null){
-                //Se connecter
-                //Renvyer à la fenêtre de tous ces messages
-                batiment.getBavard(login).setConnected(true);
-                System.out.println(login + " est connecté");
+                if(batiment.getBavard(login).getPassword().equals(password)){
+                    //Se connecter
+                    //Renvoyer à la fenêtre de tous ces messages
+                    batiment.getBavard(login).setConnected(true);
+                    System.out.println(login + " est connecté");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Ce mot de passe n'est pas bon");
+                }
+
             }
             else{
                 JOptionPane.showMessageDialog(null,"Ce login n'existe pas, réessayez");
 
             }
+        }
         });
         signUp.addActionListener(e -> {
 
