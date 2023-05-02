@@ -85,14 +85,27 @@ public class Batiment {
 
     }
 
+    public void sendOnlineNotification(Bavard bavard) {
+        if (bavard.isConnected()) {
+            for (Bavard b : this.bavards) {
+                if (b.equals(bavard)) {
+                    b.generateNewOnlineBavard(bavard);
+                }
+            }
+        }
+    }
+
     //Ajout d'un Bavard déjà éxistant
     public void addBavards(Bavard b){
-        //Vérification que le login n'exista pas déjà
+        //Vérification que le login n'existe pas déjà
         if(this.getBavard(b.getUsername())==null){
             this.bavards.add(b);
             this.concierge.addPapotageListener(b);
             this.getBavard(b).addPapotageListener(this.concierge);
             this.lastAddBavardTry =true;
+            this.getBavard(b).setConnected(true);
+            this.concierge.addOnlineBavardListener(b);
+            this.getBavard(b).addOnlineBavardListener(this.concierge);
 
         }
         else{
@@ -102,12 +115,15 @@ public class Batiment {
     }
 
     //Création d'un nouveau bavard directement dans ce batiment
-    public void addBavards(String username, String password, boolean connected){
+    public void addBavards(String username, String password){
         //Vérification qu'un login similaire n'existe pas
         if(this.getBavard(username)==null){
-            Bavard b = new Bavard(username, password,connected);
+            Bavard b = new Bavard(username, password);
             this.bavards.add(b);
             this.concierge.addPapotageListener(b);
+            this.getBavard(b).setConnected(true);
+            this.concierge.addOnlineBavardListener(b);
+            this.getBavard(b).addOnlineBavardListener(this.concierge);
             this.getBavard(b).addPapotageListener(this.concierge);
             System.out.println("Bavard :" + username + " ajouté");
             this.lastAddBavardTry = true;

@@ -3,12 +3,12 @@ public class Main {
 
         Batiment polytech = new Batiment();
         polytech.setConcierge("Concierge","pdw");
-        polytech.addBavards("test","test",false);
-        polytech.addBavards("Lila","Lila_mdp",true);
-        Bavard mathys = new Bavard("Mathys","lpb",true);
+        polytech.addBavards("test","test");
+        polytech.addBavards("Lila","Lila_mdp");
+        Bavard mathys = new Bavard("Mathys","lpb");
         polytech.addBavards(mathys);
         Bavard lila = polytech.getBavard("Lila");
-        polytech.addBavards("Sorana_Cimpan","sorana",true);
+        polytech.addBavards("Sorana_Cimpan","sorana");
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
         mathys.generateMessage("Chiant", "quoicoube", mathys.getUsername());
 

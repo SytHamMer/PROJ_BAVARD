@@ -14,10 +14,9 @@ public class Bavard implements PapotageListener, OnlineBavardListener {
 
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
 
-    public Bavard(String username, String password,boolean isConnected) {
+    public Bavard(String username, String password) {
         this.username = username;
         this.password = password;
-        this.isConnected = isConnected;
 
     }
 
@@ -52,6 +51,8 @@ public class Bavard implements PapotageListener, OnlineBavardListener {
     public void addPapotageListener(PapotageListener pl){
         destinataires.add(pl);
     }
+
+    public void addOnlineBavardListener(OnlineBavardListener obl){onlineBavards.add(obl);}
 
 
     public void removePapotageListener(PapotageListener pl){
@@ -100,13 +101,9 @@ public class Bavard implements PapotageListener, OnlineBavardListener {
     public void newOnlineBavard(OnlineBavardEvent obl) {
         Bavard b = obl.getB();
         String nom = b.getUsername();
-        System.out.println("Le bavard : " + nom + "s'est connecté.");
-        OnlineBavardEvent online = new OnlineBavardEvent(this, b);
-        for (OnlineBavardListener onlineOne : onlineBavards) {
-            onlineOne.newOnlineBavard(online);
+        System.out.println("Le bavard : " + nom + " s'est connecté.");
         }
 
-    }
     public void generateNewOnlineBavard(Bavard b) {
         OnlineBavardEvent online = new OnlineBavardEvent(this, b);
         for (OnlineBavardListener obl : onlineBavards) {

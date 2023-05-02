@@ -15,6 +15,10 @@ public class Concierge implements PapotageListener, OnlineBavardListener {
         this.password = password;
     }
 
+    public ArrayList<OnlineBavardListener> getOnlineBavards() {
+        return onlineBavards;
+    }
+
     public String getPseudo() {
         return pseudo;
     }
@@ -51,6 +55,9 @@ public class Concierge implements PapotageListener, OnlineBavardListener {
             System.out.println("Ce bavard n'est pas connecté");
         }
     }
+
+    public void addOnlineBavardListener(OnlineBavardListener obl){onlineBavards.add(obl);}
+
 
     @Override
     public void newMessage(PapotageEvent event) {

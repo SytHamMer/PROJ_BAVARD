@@ -37,6 +37,8 @@ public class ConnexionInterface extends JFrame {
                     //Se connecter
                     //Renvoyer à la fenêtre de tous ces messages
                     batiment.getBavard(login).setConnected(true);
+                    batiment.sendOnlineNotification(batiment.getBavard(login));
+
                     System.out.println(login + " est connecté");
                     BavardInterface bavardInterface = new BavardInterface(batiment.getBavard(login),true);
                     bavardInterface.setVisible(true);
@@ -57,7 +59,7 @@ public class ConnexionInterface extends JFrame {
             String login = loginTf.getText();
             String password = pwdTf.getText();
             if( batiment.isLastAddBavardTry()){
-                batiment.addBavards(login,password,true);
+                batiment.addBavards(login,password);
             }
             else{
                 JOptionPane.showMessageDialog(null,"Ce login existe déjà, sois original, appelle toi autrement, des bisous");
