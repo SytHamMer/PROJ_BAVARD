@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Concierge implements PapotageListener, OnlineBavardListener {
+public class Concierge implements PapotageListener, OnlineBavardListener, OfflineBavardListener {
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
 
     private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
+    private ArrayList<OfflineBavardListener> offlineBavards = new ArrayList<>();
     private String pseudo;
 
     private String password;
@@ -57,6 +58,8 @@ public class Concierge implements PapotageListener, OnlineBavardListener {
     }
 
     public void addOnlineBavardListener(OnlineBavardListener obl){onlineBavards.add(obl);}
+    public void addOfflineBavardListener(OfflineBavardListener obl){offlineBavards.add(obl);}
+
 
 
     @Override
@@ -103,7 +106,7 @@ public class Concierge implements PapotageListener, OnlineBavardListener {
     public void newOnlineBavard(OnlineBavardEvent obl) {
         Bavard b = obl.getB();
         String nom = b.getUsername();
-        System.out.println("Le bavard : " + nom + "s'est connecté.");
+        System.out.println("Le bavard : " + nom + " s'est connecté.");
         OnlineBavardEvent online = new OnlineBavardEvent(this, b);
         for (OnlineBavardListener onlineOne : onlineBavards) {
             onlineOne.newOnlineBavard(online);
@@ -116,5 +119,19 @@ public class Concierge implements PapotageListener, OnlineBavardListener {
         for (OnlineBavardListener obl : onlineBavards) {
             obl.newOnlineBavard(online);
         }
+    }
+
+
+
+    @Override
+    public void newOfflineBavard(OfflineBavardEvent obl) {
+        Bavard b = obl.getB();
+        String nom = b.getUsername();
+        System.out.println("Le bavard : " + nom + " s'est déconnecté.");
+        OfflineBavardEvent offline = new OfflineBavardEvent(this, b);
+        for (OfflineBavardListener offlineOne : offlineBavards) {
+            offlineOne.newOfflineBavard(offline);
+        }
+
     }
 }

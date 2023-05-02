@@ -95,6 +95,15 @@ public class Batiment {
         }
     }
 
+    public void sendOfflineNotification(Bavard bavard) {
+        bavard.setConnected(false);
+        for (Bavard b : this.bavards) {
+            if (b.equals(bavard)) {
+                b.generateNewOfflineBavard(bavard);
+            }
+        }
+    }
+
     //Ajout d'un Bavard déjà éxistant
     public void addBavards(Bavard b){
         //Vérification que le login n'existe pas déjà
@@ -106,6 +115,8 @@ public class Batiment {
             this.getBavard(b).setConnected(true);
             this.concierge.addOnlineBavardListener(b);
             this.getBavard(b).addOnlineBavardListener(this.concierge);
+            this.concierge.addOfflineBavardListener(b);
+            this.getBavard(b).addOfflineBavardListener(this.concierge);
 
         }
         else{
@@ -120,11 +131,14 @@ public class Batiment {
         if(this.getBavard(username)==null){
             Bavard b = new Bavard(username, password);
             this.bavards.add(b);
+            this.bavards.add(b);
             this.concierge.addPapotageListener(b);
             this.getBavard(b).setConnected(true);
             this.concierge.addOnlineBavardListener(b);
             this.getBavard(b).addOnlineBavardListener(this.concierge);
             this.getBavard(b).addPapotageListener(this.concierge);
+            this.concierge.addOfflineBavardListener(b);
+            this.getBavard(b).addOfflineBavardListener(this.concierge);
             System.out.println("Bavard :" + username + " ajouté");
             this.lastAddBavardTry = true;
         }

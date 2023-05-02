@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Bavard implements PapotageListener, OnlineBavardListener {
+public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBavardListener {
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
 
     private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
+    private ArrayList<OfflineBavardListener> offlineBavards = new ArrayList<>();
+
 
     private String username;
 
@@ -53,6 +55,8 @@ public class Bavard implements PapotageListener, OnlineBavardListener {
     }
 
     public void addOnlineBavardListener(OnlineBavardListener obl){onlineBavards.add(obl);}
+    public void addOfflineBavardListener(OfflineBavardListener obl){offlineBavards.add(obl);}
+
 
 
     public void removePapotageListener(PapotageListener pl){
@@ -108,6 +112,20 @@ public class Bavard implements PapotageListener, OnlineBavardListener {
         OnlineBavardEvent online = new OnlineBavardEvent(this, b);
         for (OnlineBavardListener obl : onlineBavards) {
             obl.newOnlineBavard(online);
+        }
+    }
+
+    @Override
+    public void newOfflineBavard(OfflineBavardEvent obl) {
+        Bavard b = obl.getB();
+        String nom = b.getUsername();
+        System.out.println("Le bavard : " + nom + " s'est déconnecté.");
+    }
+
+    public void generateNewOfflineBavard(Bavard b) {
+        OfflineBavardEvent offline = new OfflineBavardEvent(this, b);
+        for (OfflineBavardListener obl : offlineBavards) {
+            obl.newOfflineBavard(offline);
         }
     }
 }

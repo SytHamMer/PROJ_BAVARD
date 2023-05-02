@@ -40,7 +40,7 @@ public class ConnexionInterface extends JFrame {
                     batiment.sendOnlineNotification(batiment.getBavard(login));
 
                     System.out.println(login + " est connecté");
-                    BavardInterface bavardInterface = new BavardInterface(batiment.getBavard(login),true);
+                    BavardInterface bavardInterface = new BavardInterface(batiment.getBavard(login),true,batiment);
                     bavardInterface.setVisible(true);
                 }
                 else{

@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[ADD]: OnlineBavardEvent try to understand how to do it, spoiler i dont">
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo">
+      <change afterPath="$PROJECT_DIR$/src/OfflineBavardEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OfflineBavardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_11_03__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Concierge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Concierge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConnexionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnexionInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683030926534</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo">
+      <created>1683033955947</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683033955947</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +205,7 @@
     <MESSAGE value="[ADD]: Link BavardInterface to ConnexionInterface and open windows with all the message when you click on it" />
     <MESSAGE value="[ADD]: BavardInterface works, Switch between listPage and addMessagePage and creation of message" />
     <MESSAGE value="[ADD]: OnlineBavardEvent try to understand how to do it, spoiler i dont" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ADD]: OnlineBavardEvent try to understand how to do it, spoiler i dont" />
+    <MESSAGE value="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo" />
   </component>
 </project>

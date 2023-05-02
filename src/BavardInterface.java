@@ -10,8 +10,11 @@ public class BavardInterface extends JFrame {
 
     private boolean isDefaultInterface;
 
-    public BavardInterface(Bavard bav, boolean defaultInterface){
+    private Batiment batiment;
+
+    public BavardInterface(Bavard bav, boolean defaultInterface,Batiment bat){
         this.bav = bav;
+        this.batiment = bat;
         this.isDefaultInterface = defaultInterface;
         if(isDefaultInterface){
             defaultInterface(bav);
@@ -91,7 +94,7 @@ public class BavardInterface extends JFrame {
 
 
         JPanel buttons = new JPanel();
-        JButton disconnectBtn = new JButton("Deconexion");
+        JButton disconnectBtn = new JButton("Deconnexion");
         JButton writeBtn = new JButton("Ecrire message"); //Bouton opur passer à l'interface d'ecriture
         buttons.add(disconnectBtn);
         buttons.add(writeBtn);
@@ -105,6 +108,7 @@ public class BavardInterface extends JFrame {
 
     public void disconnect(){
         //Déconnecter le bavard VOIR SI FAIRE AVEC event
+        batiment.sendOfflineNotification(bav);
         this.dispose();
     }
     public void changePage(){
@@ -118,7 +122,7 @@ public class BavardInterface extends JFrame {
             this.setDefaultInterface(true);
             defaultInterface = true;
         }
-        BavardInterface bi = new BavardInterface(this.bav,defaultInterface);
+        BavardInterface bi = new BavardInterface(this.bav,defaultInterface,batiment);
         this.setVisible(false);
         bi.setVisible(true);
     }
