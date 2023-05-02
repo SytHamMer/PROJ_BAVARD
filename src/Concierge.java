@@ -4,13 +4,18 @@ import java.util.HashMap;
 public class Concierge implements PapotageListener{
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
     private String pseudo;
-
-
+    private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
 
     public Concierge(String pseudo){
         this.pseudo=pseudo;
     }
 
+    public ArrayList<HashMap<String, String>> getMessageReceived() {
+        return messageReceived;
+    }
+    public void addMessageReceived(HashMap<String,String> messageReceived){
+        this.messageReceived.add(messageReceived);
+    }
     public void addPapotageListener(PapotageListener pl){
         destinataires.add(pl);
     }
@@ -50,6 +55,8 @@ public class Concierge implements PapotageListener{
             p.newMessage(event);
 
         }
+
+        this.addMessageReceived(bavardage);
         return bavardage;
     }
 
