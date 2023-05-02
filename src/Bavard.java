@@ -9,11 +9,25 @@ public class Bavard implements PapotageListener {
 
     private boolean isConnected;
 
+    private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
+
     public Bavard(String username, String password,boolean isConnected) {
         this.username = username;
         this.password = password;
         this.isConnected = isConnected;
 
+    }
+
+    public ArrayList<HashMap<String, String>> getMessageReceived() {
+        return messageReceived;
+    }
+
+    public void setMessageReceived(ArrayList<HashMap<String, String>> messageReceived) {
+        this.messageReceived = messageReceived;
+    }
+
+    public void addMessageReceived(HashMap<String,String> messageReceived){
+        this.messageReceived.add(messageReceived);
     }
 
     public boolean isConnected() {
@@ -48,6 +62,15 @@ public class Bavard implements PapotageListener {
         System.out.println(event.getSujet());
         System.out.println(event.getText());
         System.out.println("Ecrit par : "+ event.getBavard());
+        String text = event.getText();
+        String sujet = event.getSujet();
+        String author = event.getBavard();
+        HashMap<String,String> message = new HashMap<>();
+        message.put("Sujet",sujet);
+        message.put("Texte",text);
+        message.put("Auteur",author);
+        this.addMessageReceived(message);
+
 
     }
 

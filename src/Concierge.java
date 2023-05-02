@@ -46,7 +46,10 @@ public class Concierge implements PapotageListener{
         System.out.println("FROM:"+author);
 
 
-        this.generateMessage(sujet, text,author);
+        for (PapotageListener p : destinataires) {
+            p.newMessage(event);
+
+        }
         return bavardage;
     }
 

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Batiment {
     //faire une version où les bavards peuvent choisir de recevoir ou non les messages du batiment
     private ArrayList<Bavard> bavards = new ArrayList<>();
+
     private String nom;
     private Concierge concierge;
 
