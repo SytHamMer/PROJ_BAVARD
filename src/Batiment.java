@@ -6,12 +6,21 @@ public class Batiment {
 
     private String nom;
     private Concierge concierge;
+    //Permet de récupérer l'état du dernier essai
+    private boolean lastAddBavardTry;
 
     public void Batiment(String nom, Concierge c){
         this.nom = nom;
         this.concierge = c;
     }
 
+    public boolean isLastAddBavardTry() {
+        return lastAddBavardTry;
+    }
+
+    public void setLastAddBavardTry(boolean lastAddBavardTry) {
+        this.lastAddBavardTry = lastAddBavardTry;
+    }
 
     public String getNom() {
         return nom;
@@ -36,7 +45,7 @@ public class Batiment {
     public Bavard getBavard(String pseudo) {
         int cpt = 0;
         while (cpt<bavards.size()){
-            if(this.bavards.get(cpt).getUsername()==pseudo){
+            if(this.bavards.get(cpt).getUsername().equals(pseudo)){
                 return this.bavards.get(cpt);
             }
             else{
@@ -68,18 +77,34 @@ public class Batiment {
 
     //Ajout d'un Bavard déjà éxistant
     public void addBavards(Bavard b){
-        this.bavards.add(b);
-        this.concierge.addPapotageListener(b);
-        this.getBavard(b).addPapotageListener(this.concierge);
+        //Vérification que le login n'exista pas déjà
+        if(this.getBavard(b.getUsername())==null){
+            this.bavards.add(b);
+            this.concierge.addPapotageListener(b);
+            this.getBavard(b).addPapotageListener(this.concierge);
+            this.lastAddBavardTry =true;
+
+        }
+        else{
+            this.lastAddBavardTry=false;
+        }
+
     }
 
     //Création d'un nouveau bavard directement dans ce batiment
-    public void addBavards(String username,String password,boolean connected){
-        Bavard b = new Bavard(username, password,connected);
-        this.bavards.add(b);
-        this.concierge.addPapotageListener(b);
-        this.getBavard(b).addPapotageListener(this.concierge);
-
+    public void addBavards(String username, String password, boolean connected){
+        //Vérification qu'un login similaire n'existe pas
+        if(this.getBavard(username)==null){
+            Bavard b = new Bavard(username, password,connected);
+            this.bavards.add(b);
+            this.concierge.addPapotageListener(b);
+            this.getBavard(b).addPapotageListener(this.concierge);
+            System.out.println("Bavard :" + username + " ajouté");
+            this.lastAddBavardTry = true;
+        }
+        else{
+            this.lastAddBavardTry = false;
+        }
     }
 
     //Suppresion d'un bavard de la liste du batiment
