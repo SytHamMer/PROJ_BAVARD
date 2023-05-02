@@ -70,9 +70,9 @@ public class Bavard implements PapotageListener {
         String sujet = event.getSujet();
         String author = event.getBavard();
         HashMap<String,String> message = new HashMap<>();
-        message.put("Sujet",sujet);
-        message.put("Texte",text);
-        message.put("Auteur",author);
+        message.put("sujet",sujet);
+        message.put("text",text);
+        message.put("auteur",author);
         this.addMessageReceived(message);
 
 
