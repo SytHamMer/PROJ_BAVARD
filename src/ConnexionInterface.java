@@ -38,6 +38,8 @@ public class ConnexionInterface extends JFrame {
                     //Renvoyer à la fenêtre de tous ces messages
                     batiment.getBavard(login).setConnected(true);
                     System.out.println(login + " est connecté");
+                    BavardInterface bavardInterface = new BavardInterface(batiment.getBavard(login));
+                    bavardInterface.setVisible(true);
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Ce mot de passe n'est pas bon");
