@@ -109,6 +109,7 @@ public class BavardInterface extends JFrame {
     public void disconnect(){
         //Déconnecter le bavard VOIR SI FAIRE AVEC event
         batiment.sendOfflineNotification(bav);
+        batiment.removeOnlineBavards(bav);
         this.dispose();
     }
     public void changePage(){
