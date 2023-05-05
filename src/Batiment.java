@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Batiment {
@@ -9,8 +10,13 @@ public class Batiment {
 
 
     private ArrayList<Bavard> OnlineBavard = new ArrayList<>();
+    private DefaultListModel<String> onlineListModel = new DefaultListModel<>();
     //Permet de récupérer l'état du dernier essai
     private boolean lastAddBavardTry;
+
+    public DefaultListModel<String> getOnlineListModel() {
+        return onlineListModel;
+    }
 
     public void Batiment(String nom, Concierge c){
         this.nom = nom;
@@ -23,6 +29,7 @@ public class Batiment {
 
     public void addOnlineBavard(Bavard b){
         this.getOnlineBavard().add(b);
+        this.onlineListModel.addElement(b.getUsername());
     }
     public boolean isLastAddBavardTry() {
         return lastAddBavardTry;

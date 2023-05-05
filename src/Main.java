@@ -11,6 +11,9 @@ public class Main {
         polytech.addBavards("Sorana_Cimpan","sorana");
         lila.generateMessage("Test","Ceci est mon message",lila.getUsername());
         mathys.generateMessage("Chiant", "quoicoube", mathys.getUsername());
+        for(int i=0; i<15;i++){
+            mathys.generateMessage("Chiant", "quoicoube" + Integer.toString(i), mathys.getUsername());
+        }
 
         ConnexionInterface mainFrame = new ConnexionInterface(polytech);
 

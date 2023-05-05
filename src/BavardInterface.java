@@ -51,18 +51,7 @@ public class BavardInterface extends JFrame {
         //JLabel title = new JLabel("Interface Concierge");
 
         ArrayList<HashMap<String,String>> messages = bav.getMessageReceived();
-        ArrayList<String> modeleList = new ArrayList<>();
-        for(HashMap<String,String> m : messages){
-            System.out.println(m);
-            String sujet = m.get("sujet");
-            String auteur = m.get("auteur");
-            String texte = m.get("text");
-            if (texte.length()>=15) {
-                texte = texte.substring(0, 14) + "...";
-            }
-            modeleList.add("[" + sujet + "] " + auteur + " : " + texte);
-        }
-        JList messList = new JList<>(modeleList.toArray());
+        JList messList = new JList<>(bav.getMessageListModel());
         this.add("West", messList);
 
         //Lecture des messages après appui dessus dans la liste
@@ -92,13 +81,17 @@ public class BavardInterface extends JFrame {
 
 
 
-
+        JPanel rightPanel = new JPanel();
         JPanel buttons = new JPanel();
         JButton disconnectBtn = new JButton("Deconnexion");
         JButton writeBtn = new JButton("Ecrire message"); //Bouton opur passer à l'interface d'ecriture
         buttons.add(disconnectBtn);
         buttons.add(writeBtn);
-        this.add("East", buttons);
+        rightPanel.setLayout(new BorderLayout());
+        rightPanel.add("North", buttons);
+        JList onlineList = new JList<>(batiment.getOnlineListModel());
+        rightPanel.add("Center", onlineList);
+        this.add("East", rightPanel);
         disconnectBtn.addActionListener(e-> disconnect());
         writeBtn.addActionListener(e -> changePage());
 
@@ -109,7 +102,6 @@ public class BavardInterface extends JFrame {
     public void disconnect(){
         //Déconnecter le bavard VOIR SI FAIRE AVEC event
         batiment.sendOfflineNotification(bav);
-        batiment.removeOnlineBavards(bav);
         this.dispose();
     }
     public void changePage(){
@@ -133,6 +125,7 @@ public class BavardInterface extends JFrame {
         String strTexte = texte.getText();
 
         this.bav.generateMessage(strSujet,strTexte,this.bav.getUsername());
+
 
         //Retourner à la page de liste des messages à la fin de l'ajout
         changePage();

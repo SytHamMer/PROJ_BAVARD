@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,6 +17,8 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
 
+    private DefaultListModel<String> messageListModel = new DefaultListModel<>();
+
     public Bavard(String username, String password) {
         this.username = username;
         this.password = password;
@@ -26,6 +29,10 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         return password;
     }
 
+    public DefaultListModel<String> getMessageListModel() {
+        return messageListModel;
+    }
+
     public ArrayList<HashMap<String, String>> getMessageReceived() {
         return messageReceived;
     }
@@ -34,8 +41,16 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         this.messageReceived = messageReceived;
     }
 
-    public void addMessageReceived(HashMap<String,String> messageReceived){
-        this.messageReceived.add(messageReceived);
+    public void addMessageReceived(HashMap<String,String> m){
+        this.messageReceived.add(m);
+        System.out.println(m);
+        String sujet = m.get("sujet");
+        String auteur = m.get("auteur");
+        String texte = m.get("text");
+        if (texte.length()>=15) {
+            texte = texte.substring(0, 14) + "...";
+        }
+        this.messageListModel.addElement("[" + sujet + "] " + auteur + " : " + texte);
     }
 
     public boolean isConnected() {
