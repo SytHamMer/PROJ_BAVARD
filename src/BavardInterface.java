@@ -154,15 +154,14 @@ public class BavardInterface extends JFrame {
 
         String strSujet = sujet.getText();
         String strTexte = texte.getText();
-        if (strSujet.equals("")){
-            System.out.println("VIDE==========================================================");
+        if (strSujet.equals("") || strTexte.equals("")){
+            JOptionPane.showMessageDialog(null,"Le contenu du sujet ou du texte est vide");
         }
-
-        this.bav.generateMessage(strSujet,strTexte,this.bav.getUsername());
-
-
-        //Retourner à la page de liste des messages à la fin de l'ajout
-        changePage();
+        else{
+            this.bav.generateMessage(strSujet,strTexte,this.bav.getUsername());
+            //Retourner à la page de liste des messages à la fin de l'ajout
+            changePage();
+        }
     }
     public void writeMessageInterface(Bavard bav){
 
