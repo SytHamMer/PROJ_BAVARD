@@ -164,18 +164,4 @@ public class Batiment {
 
         }
     }
-
-
-
-    public void removeOnlineBavards(Bavard b){
-        if (this.OnlineBavard.contains(b)) {
-            this.OnlineBavard.remove(b);
-            System.out.println("Le bavard est bien déconnecté");
-            System.out.println(this.OnlineBavard);
-
-        }else{
-            System.out.println("Ce bavard n'est pas connecté");
-
-        }
-    }
 }

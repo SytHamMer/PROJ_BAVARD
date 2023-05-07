@@ -40,7 +40,9 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     public void setMessageReceived(ArrayList<HashMap<String, String>> messageReceived) {
         this.messageReceived = messageReceived;
     }
-
+    /* Ajoute le message à la liste des messages recus et aussi ajoute son appercu à la liste des messages
+    affiché sur l'interface
+     */
     public void addMessageReceived(HashMap<String,String> m){
         this.messageReceived.add(m);
         System.out.println(m);
@@ -84,6 +86,9 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         }
     }
     @Override
+    /* Récupère le message et l'affiche dans la console et l'ajoute aux messages recus
+
+     */
     public void newMessage(PapotageEvent event) {
         System.out.println(this.username + " a bien recu le message.");
         System.out.println(event.getSujet());
@@ -100,7 +105,9 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
 
     }
+    /* Génère un message pour le PapotageEvent et récupère les message avec saveMessage
 
+     */
     @Override
     public HashMap<String, String> saveMessage(PapotageEvent event) {
         return null;
@@ -116,6 +123,11 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
     }
 
+
+    /* Que ce soit OnlineBavard ou OfflineBavard ces fonctions fonctionne de manière similaire
+    le but est d'avertir tous les autres Bavard de la connexion ou deconnexion et d'être avertis en cas de connexion
+    ou déconnexion de tout autre bavard
+     */
     @Override
     public void newOnlineBavard(OnlineBavardEvent obl) {
         Bavard b = obl.getB();

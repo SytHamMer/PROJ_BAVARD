@@ -67,6 +67,9 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
     }
 
     @Override
+    /* Le concierge sauvegarde sous la forme d'un dictionnaire toutes les informations relatives
+    au message recu et l'affiche dans la console
+     */
     public HashMap<String, String> saveMessage(PapotageEvent event) {
         //MODIFIER ICI
         HashMap<String, String> bavardage = new HashMap<>();

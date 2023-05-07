@@ -62,7 +62,6 @@ public class BavardInterface extends JFrame {
         this.add("Center", messageSP);
 
         //Lecture des messages après appui dessus dans la liste
-
         messList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -95,9 +94,6 @@ public class BavardInterface extends JFrame {
                 }
             }
         });
-
-
-
 
 
         JPanel rightPanel = new JPanel();

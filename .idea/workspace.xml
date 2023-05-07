@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: The multpile message open when we click on one is fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: Check before addMessage if the subject and the text is not empty">
       <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConnexionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnexionInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +175,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683457095291</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="[FIX]: Put fonction out of addActionListener and start comment code">
+      <created>1683475033307</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683475033307</updated>
+    </task>
+    <task id="LOCAL-00018" summary="[FIX]: Check before addMessage if the subject and the text is not empty">
+      <created>1683475182458</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683475182458</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +220,8 @@
     <MESSAGE value="[ADD]: OnlineBavardEvent try to understand how to do it, spoiler i dont" />
     <MESSAGE value="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo" />
     <MESSAGE value="[FIX]: The multpile message open when we click on one is fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX]: The multpile message open when we click on one is fix" />
+    <MESSAGE value="[FIX]: Put fonction out of addActionListener and start comment code" />
+    <MESSAGE value="[FIX]: Check before addMessage if the subject and the text is not empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX]: Check before addMessage if the subject and the text is not empty" />
   </component>
 </project>
