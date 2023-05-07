@@ -66,9 +66,21 @@ public class BavardInterface extends JFrame {
                     String selectedMessage = (String) messList.getSelectedValue();
                     System.out.println(selectedMessage);
                     String selectedSujet = selectedMessage.substring(selectedMessage.indexOf("[")+1,selectedMessage.indexOf("]"));
+                    String selectedBavard = selectedMessage.substring(selectedMessage.indexOf("]")+2,selectedMessage.indexOf(":")-1);
+                    String selectedText = selectedMessage.substring(selectedMessage.indexOf(":")+2,selectedMessage.length());
+                    System.out.println(selectedText);
+                    System.out.println(selectedBavard);
                     System.out.println(selectedSujet);
                     for (HashMap<String,String> m:messages){
-                        if(m.get("sujet").equals(selectedSujet)){
+                        //récupérer les premiers caractères du text pour comparer au premier caractère du text papotage selectionné
+                        String text;
+                        if (m.get("text").length()>=15) {
+                            text = m.get("text").substring(0, 14) + "...";
+                        }
+                        else{
+                            text = m.get("text");
+                        }
+                        if(m.get("sujet").equals(selectedSujet) && m.get("auteur").equals(selectedBavard) && text.equals(selectedText)){
                             String message = "Sujet :" + m.get("sujet") + "\n" + m.get("text") + "\n\n Ecrit par :" + m.get("auteur");
 
                             JOptionPane.showMessageDialog(null,message);
