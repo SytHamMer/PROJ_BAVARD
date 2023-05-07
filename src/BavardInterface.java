@@ -47,12 +47,14 @@ public class BavardInterface extends JFrame {
         this.setSize(500, 320);
         this.setLayout(new BorderLayout());
 
-        this.add("North", new JLabel("Bavard : " + bav.getUsername()));
-        //JLabel title = new JLabel("Interface Concierge");
+        JLabel title = new JLabel("Bavard : " + bav.getUsername());
+        title.setFont(new Font("Sans Serif", Font.PLAIN, 30));
+        this.add("North",title);
 
         ArrayList<HashMap<String,String>> messages = bav.getMessageReceived();
         JList messList = new JList<>(bav.getMessageListModel());
-        this.add("West", messList);
+        JScrollPane messageSP = new JScrollPane(messList);
+        this.add("Center", messageSP);
 
         //Lecture des messages après appui dessus dans la liste
 
@@ -90,7 +92,12 @@ public class BavardInterface extends JFrame {
         rightPanel.setLayout(new BorderLayout());
         rightPanel.add("North", buttons);
         JList onlineList = new JList<>(batiment.getOnlineListModel());
-        rightPanel.add("Center", onlineList);
+        JScrollPane onlineSP = new JScrollPane(onlineList);
+        JPanel onlinePanel = new JPanel();
+        onlinePanel.setLayout(new BorderLayout());
+        onlinePanel.add("North", new JLabel("Bavards connectés :"));
+        onlinePanel.add("Center", onlineSP);
+        rightPanel.add("Center", onlinePanel);
         this.add("East", rightPanel);
         disconnectBtn.addActionListener(e-> disconnect());
         writeBtn.addActionListener(e -> changePage());

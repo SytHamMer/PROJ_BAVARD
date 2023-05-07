@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_10_39_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_10_39__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_10_57_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_10_57__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_12_03_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_12_03__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_12_20_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_12_20__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_13_11_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2023_13_11__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683033955947</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="[ADD]: JList onlineBavards + autoupdate">
+      <created>1683268612177</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683268612177</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +216,7 @@
     <MESSAGE value="[ADD]: BavardInterface works, Switch between listPage and addMessagePage and creation of message" />
     <MESSAGE value="[ADD]: OnlineBavardEvent try to understand how to do it, spoiler i dont" />
     <MESSAGE value="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX]: OnlineBavardEvent finally work thank to Mathieu and Theo" />
+    <MESSAGE value="[ADD]: JList onlineBavards + autoupdate" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADD]: JList onlineBavards + autoupdate" />
   </component>
 </project>
