@@ -12,6 +12,11 @@ public class BavardInterface extends JFrame {
 
     private Batiment batiment;
 
+
+    /* Cette interface est double il y a "deux fenêtre" pour réaliser le switch entre les deux on utilise un bouton
+    et la variable isDefaultInterface cette dernière est modifié à chaque changement de fenetre car c'est seulement un
+    switch entre deux fenêtre
+     */
     public BavardInterface(Bavard bav, boolean defaultInterface,Batiment bat){
         this.bav = bav;
         this.batiment = bat;
@@ -118,11 +123,15 @@ public class BavardInterface extends JFrame {
         this.setVisible(true);
     }
 
+    //Fonction appelé lors de l'appui du bouton qui déconnecte l'utilisateur et donc envoie la notification
     public void disconnect(){
         //Déconnecter le bavard VOIR SI FAIRE AVEC event
         batiment.sendOfflineNotification(bav);
         this.dispose();
     }
+    /*Fonction permettant le changement de fenêtre lors de l'appui d'un bouton.
+    On vérifie quelle fenêtre et ouverte et ou switch sur l'autre
+     */
     public void changePage(){
 
         boolean defaultInterface;
@@ -138,10 +147,16 @@ public class BavardInterface extends JFrame {
         this.setVisible(false);
         bi.setVisible(true);
     }
-
+    /* Fonction qui ajoute le message renseigné lorsque l'on appui sur envoyer
+    La fonction doit aussi changer la page et retourner à celle ou se trouve la liste de messages
+     */
     public void addMessage(JTextField sujet,JTextArea texte){
+
         String strSujet = sujet.getText();
         String strTexte = texte.getText();
+        if (strSujet.equals("")){
+            System.out.println("VIDE==========================================================");
+        }
 
         this.bav.generateMessage(strSujet,strTexte,this.bav.getUsername());
 

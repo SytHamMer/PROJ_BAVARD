@@ -68,7 +68,6 @@ public class Batiment {
             else{
                 cpt=cpt+1;
             }
-
         }
         System.out.println("Ce bavard("+ pseudo + ") n'est pas présent dans le batiment");
         return null;
@@ -85,13 +84,13 @@ public class Batiment {
             else{
                 cpt=cpt+1;
             }
-
         }
         System.out.println("Ce bavard("+ b.getUsername() + ") n'est pas présent dans le batiment");
         return null;
 
     }
 
+    //Envoie une notification dès que le bavard en argument se connecte
     public void sendOnlineNotification(Bavard bavard) {
         if (bavard.isConnected()) {
             for (Bavard b : this.bavards) {
@@ -101,7 +100,7 @@ public class Batiment {
             }
         }
     }
-
+    //Envoie une notification dès que le bavard en argument se déconnecte
     public void sendOfflineNotification(Bavard bavard) {
         bavard.setConnected(false);
         for (Bavard b : this.bavards) {
