@@ -4,29 +4,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ConciergeInterface extends JFrame {
+
+    // attributs
     private Batiment bat;
     private Concierge concierge;
     public ConciergeInterface(Batiment bat){
+
+        // Initialisation de la fenetre
         this.bat = bat;
         this.concierge = bat.getConcierge();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 320);
+        this.setLayout(new BorderLayout());
 
+        // Titre de l'interface
         JLabel title = new JLabel("Interface Concierge");
-        this.add(title);
+        title.setFont(new Font("Sans Serif", Font.PLAIN, 30));
+        this.add("North",title);
+
+        // Liste de messages
         ArrayList<HashMap<String,String>> messages = concierge.getMessageReceived();
-        ArrayList<String> modeleList = new ArrayList<>();
-        for(HashMap<String,String> m : messages){
-            String sujet = m.get("sujet");
-            String auteur = m.get("auteur");
-            String texte = m.get("text");
-            modeleList.add("[" + sujet + "] " + auteur + " : " + texte);
-        }
-        JList messList = new JList<>(modeleList.toArray());
-        this.add(messList);
-
-
+        JList messList = new JList<>(concierge.getMessageListModel());
+        JScrollPane messageSP = new JScrollPane(messList);
+        this.add("Center", messageSP);
 
         this.setVisible(true);
     }

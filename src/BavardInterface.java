@@ -46,16 +46,21 @@ public class BavardInterface extends JFrame {
         this.bav = bav;
     }
 
+    // Fenetre par defaut qui s'affiche quand un utilisateur se connecte
     public void defaultInterface(Bavard bav){
 
+        // Initialisation de la fenetre
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 320);
         this.setLayout(new BorderLayout());
 
+        // Titre de l'interface
         JLabel title = new JLabel("Bavard : " + bav.getUsername());
         title.setFont(new Font("Sans Serif", Font.PLAIN, 30));
         this.add("North",title);
 
+        // Apperçu des messages reçus sous forme de liste, avec possibilité de
+        // faire defiler les messages s'ils sont trop nombreux
         ArrayList<HashMap<String,String>> messages = bav.getMessageReceived();
         JList messList = new JList<>(bav.getMessageListModel());
         JScrollPane messageSP = new JScrollPane(messList);
@@ -95,31 +100,37 @@ public class BavardInterface extends JFrame {
             }
         });
 
-
-        JPanel rightPanel = new JPanel();
+        // Panel des boutons (deconnexion et ecriture)
         JPanel buttons = new JPanel();
         JButton disconnectBtn = new JButton("Deconnexion");
         JButton writeBtn = new JButton("Ecrire message"); //Bouton opur passer à l'interface d'ecriture
         buttons.add(disconnectBtn);
         buttons.add(writeBtn);
-        rightPanel.setLayout(new BorderLayout());
-        rightPanel.add("North", buttons);
+
+        // Affichage des bavards connectés sous forme de liste, avec possibilité de
+        // faire defiler s'ils sont trop nombreux
         JList onlineList = new JList<>(batiment.getOnlineListModel());
         JScrollPane onlineSP = new JScrollPane(onlineList);
         JPanel onlinePanel = new JPanel();
         onlinePanel.setLayout(new BorderLayout());
         onlinePanel.add("North", new JLabel("Bavards connectés :"));
         onlinePanel.add("Center", onlineSP);
+
+        // Panel de la partie droite de l'interface (boutons + liste bavards connectés)
+        JPanel rightPanel = new JPanel();
+        rightPanel.setLayout(new BorderLayout());
+        rightPanel.add("North", buttons);
         rightPanel.add("Center", onlinePanel);
         this.add("East", rightPanel);
+
+        // Actions des 2 boutons
         disconnectBtn.addActionListener(e-> disconnect());
         writeBtn.addActionListener(e -> changePage());
-
 
         this.setVisible(true);
     }
 
-    //Fonction appelé lors de l'appui du bouton qui déconnecte l'utilisateur et donc envoie la notification
+    //Fonction appelée lors de l'appui du bouton qui déconnecte l'utilisateur et donc envoie la notification
     public void disconnect(){
         //Déconnecter le bavard VOIR SI FAIRE AVEC event
         batiment.sendOfflineNotification(bav);
@@ -143,6 +154,7 @@ public class BavardInterface extends JFrame {
         this.setVisible(false);
         bi.setVisible(true);
     }
+
     /* Fonction qui ajoute le message renseigné lorsque l'on appui sur envoyer
     La fonction doit aussi changer la page et retourner à celle ou se trouve la liste de messages
      */
@@ -159,25 +171,36 @@ public class BavardInterface extends JFrame {
             changePage();
         }
     }
+
+    /* Fenetre d'ecriture de message, qui s'affiche uniquement si l'utilisateur a cliqué
+    sur le bouton writeBtn
+     */
     public void writeMessageInterface(Bavard bav){
 
+        // Initialisation de la fenetre
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 320);
         this.setLayout(new BorderLayout());
 
+        // Bar en haut de l'interface
         JPanel topBar = new JPanel();
         JTextField sujetTf = new JTextField(20);
         JButton backBtn = new JButton("Retour"); //Bouton retour à l'interface principale
         JButton sendBtn = new JButton("Envoyer"); //Bouton retour + envoi message
-        backBtn.addActionListener(e-> changePage());
         topBar.add(backBtn);
         topBar.add(new JLabel("Sujet : "));
         topBar.add(sujetTf);
         topBar.add(sendBtn);
         this.add("North", topBar);
+
+        // Zone de texte pour l'ecriture du message
         JTextArea text = new JTextArea();
         this.add("Center", text);
+
+        // Actions des boutons
+        backBtn.addActionListener(e-> changePage());
         sendBtn.addActionListener(e-> addMessage(sujetTf,text));
+
         this.setVisible(true);
     }
 }

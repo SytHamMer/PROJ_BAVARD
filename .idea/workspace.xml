@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: Check before addMessage if the subject and the text is not empty">
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Concierge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Concierge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConciergeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConciergeInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConnexionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnexionInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

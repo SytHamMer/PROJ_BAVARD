@@ -3,28 +3,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBavardListener {
-    private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
 
+    // Attributs
+    private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
     private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
     private ArrayList<OfflineBavardListener> offlineBavards = new ArrayList<>();
-
-
     private String username;
-
     private String password;
-
     private boolean isConnected;
-
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
-
     private DefaultListModel<String> messageListModel = new DefaultListModel<>();
 
+    // Constructeur
     public Bavard(String username, String password) {
         this.username = username;
         this.password = password;
 
     }
 
+    // getters & setters
     public String getPassword() {
         return password;
     }
@@ -40,20 +37,6 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     public void setMessageReceived(ArrayList<HashMap<String, String>> messageReceived) {
         this.messageReceived = messageReceived;
     }
-    /* Ajoute le message à la liste des messages recus et aussi ajoute son appercu à la liste des messages
-    affiché sur l'interface
-     */
-    public void addMessageReceived(HashMap<String,String> m){
-        this.messageReceived.add(m);
-        System.out.println(m);
-        String sujet = m.get("sujet");
-        String auteur = m.get("auteur");
-        String texte = m.get("text");
-        if (texte.length()>=15) {
-            texte = texte.substring(0, 14) + "...";
-        }
-        this.messageListModel.addElement("[" + sujet + "] " + auteur + " : " + texte);
-    }
 
     public boolean isConnected() {
         return isConnected;
@@ -65,6 +48,22 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
     public String getUsername() {
         return username;
+    }
+
+    /* Fonction qui permet d'ajouter le message reçu à la liste de hashmap messageReceived,
+    ainsi que sous forme de string dans la defaultModelList messageListModel, utilisee pour
+    afficher les messages dans l'interface
+     */
+    public void addMessageReceived(HashMap<String,String> m){
+        this.messageReceived.add(m);
+        System.out.println(m);
+        String sujet = m.get("sujet");
+        String auteur = m.get("auteur");
+        String texte = m.get("text");
+        if (texte.length()>=15) {
+            texte = texte.substring(0, 14) + "...";
+        }
+        this.messageListModel.addElement("[" + sujet + "] " + auteur + " : " + texte);
     }
 
     public void addPapotageListener(PapotageListener pl){

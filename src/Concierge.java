@@ -1,21 +1,26 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Concierge implements PapotageListener, OnlineBavardListener, OfflineBavardListener {
-    private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
 
+    // attributs
+    private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
     private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
     private ArrayList<OfflineBavardListener> offlineBavards = new ArrayList<>();
     private String pseudo;
-
     private String password;
     private ArrayList<HashMap<String, String>> messageReceived = new ArrayList<>();
+    private DefaultListModel<String> messageListModel = new DefaultListModel<>();
 
+    // constructeur
     public Concierge(String pseudo, String password) {
         this.pseudo = pseudo;
         this.password = password;
     }
 
+
+    // getters & setters
     public ArrayList<OnlineBavardListener> getOnlineBavards() {
         return onlineBavards;
     }
@@ -40,8 +45,20 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
         return messageReceived;
     }
 
+    public DefaultListModel<String> getMessageListModel() {
+        return messageListModel;
+    }
+
+    /* Fonction qui permet d'ajouter le message reçu à la liste de hashmap messageReceived,
+    ainsi que sous forme de string dans la defaultModelList messageListModel, utilisee pour
+    afficher les messages dans l'interface
+     */
     public void addMessageReceived(HashMap<String, String> messageReceived) {
         this.messageReceived.add(messageReceived);
+        String sujet = messageReceived.get("sujet");
+        String auteur = messageReceived.get("auteur");
+        String texte = messageReceived.get("text");
+        this.messageListModel.addElement("[" + sujet + "] " + auteur + " : " + texte);
     }
 
     public void addPapotageListener(PapotageListener pl) {
@@ -71,7 +88,6 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
     au message recu et l'affiche dans la console
      */
     public HashMap<String, String> saveMessage(PapotageEvent event) {
-        //MODIFIER ICI
         HashMap<String, String> bavardage = new HashMap<>();
         String sujet = event.getSujet();
         String text = event.getText();
@@ -95,6 +111,7 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
         return bavardage;
     }
 
+    // Generation d'un nouveau message et envoi de ce message à tous les destinataires de la liste
     @Override
     public void generateMessage(String sujet, String text, String author) {
         PapotageEvent message = new PapotageEvent(this, sujet, text, author);

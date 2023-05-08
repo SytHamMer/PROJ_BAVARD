@@ -153,7 +153,7 @@ public class Batiment {
         }
     }
 
-    //Suppresion d'un bavard de la liste du batiment
+    //Suppression d'un bavard de la liste du batiment
     public void removeBavards(Bavard b){
         if (this.bavards.contains(b)) {
             this.bavards.remove(b);
