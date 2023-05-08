@@ -113,15 +113,15 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
 
     // Generation d'un nouveau message et envoi de ce message à tous les destinataires de la liste
     @Override
-    public void generateMessage(String sujet, String text, String author) {
-        PapotageEvent message = new PapotageEvent(this, sujet, text, author);
+    public void generateMessage(String sujet, String text, String author,Theme theme) {
+        PapotageEvent message = new PapotageEvent(this, sujet, text, author,theme);
         for (PapotageListener p : destinataires) {
             p.newMessage(message);
 
         }
     }
 
-
+    //Génère une notification dès qu'un Bavard se connecte et la transmet au reste des bavards
     @Override
     public void newOnlineBavard(OnlineBavardEvent obl) {
         Bavard b = obl.getB();
@@ -142,7 +142,7 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
     }
 
 
-
+    //Génère une notification dès qu'un Bavard se déconnecte et la transmet au reste des bavards
     @Override
     public void newOfflineBavard(OfflineBavardEvent obl) {
         Bavard b = obl.getB();

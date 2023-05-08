@@ -158,15 +158,15 @@ public class BavardInterface extends JFrame {
     /* Fonction qui ajoute le message renseigné lorsque l'on appui sur envoyer
     La fonction doit aussi changer la page et retourner à celle ou se trouve la liste de messages
      */
-    public void addMessage(JTextField sujet,JTextArea texte){
-
+    public void addMessage(JTextField sujet,JTextArea texte,JComboBox menu){
+        Theme theme = getTheme(menu);
         String strSujet = sujet.getText();
         String strTexte = texte.getText();
         if (strSujet.equals("") || strTexte.equals("")){
             JOptionPane.showMessageDialog(null,"Le contenu du sujet ou du texte est vide");
         }
         else{
-            this.bav.generateMessage(strSujet,strTexte,this.bav.getUsername());
+            this.bav.generateMessage(strSujet,strTexte,this.bav.getUsername(),theme);
             //Retourner à la page de liste des messages à la fin de l'ajout
             changePage();
         }
@@ -187,10 +187,13 @@ public class BavardInterface extends JFrame {
         JTextField sujetTf = new JTextField(20);
         JButton backBtn = new JButton("Retour"); //Bouton retour à l'interface principale
         JButton sendBtn = new JButton("Envoyer"); //Bouton retour + envoi message
+        JComboBox menu = new JComboBox<>(Theme.values());
         topBar.add(backBtn);
         topBar.add(new JLabel("Sujet : "));
         topBar.add(sujetTf);
         topBar.add(sendBtn);
+        topBar.add(menu);
+        menu.addActionListener(e -> getTheme(menu));
         this.add("North", topBar);
 
         // Zone de texte pour l'ecriture du message
@@ -199,8 +202,13 @@ public class BavardInterface extends JFrame {
 
         // Actions des boutons
         backBtn.addActionListener(e-> changePage());
-        sendBtn.addActionListener(e-> addMessage(sujetTf,text));
+        sendBtn.addActionListener(e-> addMessage(sujetTf,text,menu));
 
         this.setVisible(true);
+    }
+
+    public Theme getTheme(JComboBox menu){
+        Theme theme = (Theme) menu.getSelectedItem();
+        return theme;
     }
 }

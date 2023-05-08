@@ -9,7 +9,7 @@ public interface PapotageListener{
 
 
     //message généré par le concierge qui donne l'information sur le bavard aussi
-    void generateMessage(String sujet, String text,String author);
+    void generateMessage(String sujet, String text,String author,Theme theme);
 
 
 }

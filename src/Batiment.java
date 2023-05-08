@@ -12,7 +12,6 @@ public class Batiment {
     private ArrayList<Bavard> OnlineBavard = new ArrayList<>();
     private DefaultListModel<String> onlineListModel = new DefaultListModel<>();
     //Permet de récupérer l'état du dernier essai
-    private boolean lastAddBavardTry;
 
     public DefaultListModel<String> getOnlineListModel() {
         return onlineListModel;
@@ -31,13 +30,7 @@ public class Batiment {
         this.getOnlineBavard().add(b);
         this.onlineListModel.addElement(b.getUsername());
     }
-    public boolean isLastAddBavardTry() {
-        return lastAddBavardTry;
-    }
 
-    public void setLastAddBavardTry(boolean lastAddBavardTry) {
-        this.lastAddBavardTry = lastAddBavardTry;
-    }
 
     public String getNom() {
         return nom;
@@ -113,23 +106,18 @@ public class Batiment {
     //Ajout d'un Bavard déjà éxistant
     public void addBavards(Bavard b){
         //Vérification que le login n'existe pas déjà
-        if(this.getBavard(b.getUsername())==null){
+        if(this.getBavard(b.getUsername())==null) {
             this.bavards.add(b);
             this.concierge.addPapotageListener(b);
             this.getBavard(b).addPapotageListener(this.concierge);
-            this.lastAddBavardTry =true;
             this.getBavard(b).setConnected(true);
             this.concierge.addOnlineBavardListener(b);
             this.getBavard(b).addOnlineBavardListener(this.concierge);
             this.concierge.addOfflineBavardListener(b);
             this.getBavard(b).addOfflineBavardListener(this.concierge);
-
         }
-        else{
-            this.lastAddBavardTry=false;
-        }
-
     }
+
 
     //Création d'un nouveau bavard directement dans ce batiment
     public void addBavards(String username, String password){
@@ -146,10 +134,6 @@ public class Batiment {
             this.concierge.addOfflineBavardListener(b);
             this.getBavard(b).addOfflineBavardListener(this.concierge);
             System.out.println("Bavard :" + username + " ajouté");
-            this.lastAddBavardTry = true;
-        }
-        else{
-            this.lastAddBavardTry = false;
         }
     }
 

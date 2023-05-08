@@ -103,8 +103,7 @@ public class ConnexionInterface extends JFrame {
         String login = loginTf.getText();
         String password = pwdTf.getText();
         System.out.println(login);
-        if( batiment.isLastAddBavardTry()){
-            if(batiment.getBavard(login) == null){
+        if(batiment.getBavard(login) == null){
                 batiment.addBavards(login,password);
                 //Appel de la fonction connectBavard() uniquement si ce dernier n'existait pas avant
                 connectBavard();
@@ -112,12 +111,6 @@ public class ConnexionInterface extends JFrame {
             else{
                 JOptionPane.showMessageDialog(null,"Ce login existe déjà, sois original, appelle toi autrement, des bisous");
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Ce login existe déjà, sois original, appelle toi autrement, des bisous");
-        }
-
-
     }
 
 

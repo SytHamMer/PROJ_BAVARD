@@ -92,14 +92,17 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         System.out.println(this.username + " a bien recu le message.");
         System.out.println(event.getSujet());
         System.out.println(event.getText());
+        System.out.println(event.getTheme().name());
         System.out.println("Ecrit par : "+ event.getBavard());
         String text = event.getText();
         String sujet = event.getSujet();
         String author = event.getBavard();
+        Theme theme = event.getTheme();
         HashMap<String,String> message = new HashMap<>();
         message.put("sujet",sujet);
         message.put("text",text);
         message.put("auteur",author);
+        message.put("theme",theme.name());
         this.addMessageReceived(message);
 
 
@@ -114,8 +117,8 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
 
     @Override
-    public void generateMessage(String sujet, String text,String author){
-        PapotageEvent message = new PapotageEvent(this, sujet, text,this.getUsername() );
+    public void generateMessage(String sujet, String text,String author,Theme theme){
+        PapotageEvent message = new PapotageEvent(this, sujet, text,this.getUsername(),theme);
         for (PapotageListener p : destinataires){
             p.saveMessage(message);
         }
