@@ -30,6 +30,9 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         this.initThemes();
         System.out.println("init users :");
         this.initUsers();
+        for(Bavard bav : bat.getBavards()){
+            bav.getUsers().add(username);
+        }
 
     }
 
@@ -138,22 +141,28 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
         for (String bavTheme : themes){
             String theme = event.getTheme().name();
-            if(bavTheme == theme){
-                System.out.println(this.username + " a bien recu le message.");
-                System.out.println(event.getSujet());
-                System.out.println(event.getText());
-                System.out.println(event.getTheme().name());
-                System.out.println("Ecrit par : "+ event.getBavard());
-                String text = event.getText();
-                String sujet = event.getSujet();
-                String author = event.getBavard();
-                HashMap<String,String> message = new HashMap<>();
-                message.put("sujet",sujet);
-                message.put("text",text);
-                message.put("auteur",author);
-                message.put("theme",theme);
-                this.addMessageReceived(message);
-                break;
+            if(bavTheme.equals(theme)){
+                for (String bavUser : users){
+                    String user = event.getBavard();
+                    if(bavUser.equals(user)){
+                        System.out.println(this.username + " a bien recu le message.");
+                        System.out.println(event.getSujet());
+                        System.out.println(event.getText());
+                        System.out.println(event.getTheme().name());
+                        System.out.println("Ecrit par : "+ event.getBavard());
+                        String text = event.getText();
+                        String sujet = event.getSujet();
+                        String author = event.getBavard();
+                        HashMap<String,String> message = new HashMap<>();
+                        message.put("sujet",sujet);
+                        message.put("text",text);
+                        message.put("auteur",author);
+                        message.put("theme",theme);
+                        this.addMessageReceived(message);
+                        break;
+                    }
+                }
+
 
             }
         }
@@ -189,7 +198,7 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         Bavard b = obl.getB();
         String nom = b.getUsername();
         System.out.println("Le bavard : " + nom + " s'est connecté.");
-        }
+    }
 
     public void generateNewOnlineBavard(Bavard b) {
         OnlineBavardEvent online = new OnlineBavardEvent(this, b);
@@ -212,4 +221,3 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         }
     }
 }
-

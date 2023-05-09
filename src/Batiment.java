@@ -31,6 +31,11 @@ public class Batiment {
         this.onlineListModel.addElement(b.getUsername());
     }
 
+    public void removeOnlineBavard(Bavard b){
+        this.getOnlineBavard().remove(b);
+        this.onlineListModel.removeElement(b.getUsername());
+    }
+
 
     public String getNom() {
         return nom;

@@ -147,6 +147,7 @@ public class BavardInterface extends JFrame {
     public void disconnect(){
         //Déconnecter le bavard VOIR SI FAIRE AVEC event
         batiment.sendOfflineNotification(bav);
+        batiment.removeOnlineBavard(bav);
         this.dispose();
     }
     /*Fonction permettant le changement de fenêtre lors de l'appui d'un bouton.

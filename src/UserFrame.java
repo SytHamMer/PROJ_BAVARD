@@ -61,6 +61,7 @@ public class UserFrame extends JFrame {
             }
         }
         System.out.println(this.selectedUsers);
+        bav.setUsers(selectedUsers);
         this.setVisible(false);
     }
 
