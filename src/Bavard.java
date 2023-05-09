@@ -21,10 +21,16 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     public Bavard(String username, String password) {
         this.username = username;
         this.password = password;
+        this.initThemes();
 
     }
 
     // getters & setters
+
+    public void setThemes(ArrayList<String> themes) {
+        this.themes = themes;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -58,7 +64,7 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         return themes;
     }
 
-    public void setThemes() {
+    public void initThemes() {
         for(Theme theme : Theme.values()){
             this.themes.add(theme.name());
         }
