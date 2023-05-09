@@ -123,7 +123,7 @@ public class Batiment {
     public void addBavards(String username, String password){
         //Vérification qu'un login similaire n'existe pas
         if(this.getBavard(username)==null){
-            Bavard b = new Bavard(username, password);
+            Bavard b = new Bavard(username, password, this);
             this.bavards.add(b);
             this.concierge.addPapotageListener(b);
             this.getBavard(b).setConnected(true);

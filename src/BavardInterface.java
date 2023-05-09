@@ -234,7 +234,7 @@ public class BavardInterface extends JFrame {
     }
 
     public void showUserFrame(){
-        UserFrame uf = new UserFrame(batiment);
+        UserFrame uf = new UserFrame(batiment, bav);
     }
 
 

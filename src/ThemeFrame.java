@@ -22,10 +22,7 @@ public class ThemeFrame extends JFrame {
         System.out.println(bav.getThemes());
         for(Theme value : Theme.values()){
             JCheckBox newCB = new JCheckBox(value.name());
-            System.out.println(Arrays.asList(bav.getThemes()));
-            System.out.println(value.name());
             if(bav.getThemes().contains(value.name())){
-                System.out.println("pk ca marche pas");
                 newCB.setSelected(true);
             }
             this.choicePanel.add(newCB);

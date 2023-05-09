@@ -11,17 +11,24 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     private ArrayList<OfflineBavardListener> offlineBavards = new ArrayList<>();
     private String username;
     private String password;
+
+    private Batiment bat;
     private boolean isConnected;
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
     private DefaultListModel<String> messageListModel = new DefaultListModel<>();
 
     private ArrayList<String> themes = new ArrayList<>();
 
+    private ArrayList<String> users = new ArrayList<>();
+
     // Constructeur
-    public Bavard(String username, String password) {
+    public Bavard(String username, String password, Batiment bat) {
         this.username = username;
         this.password = password;
+        this.bat = bat;
         this.initThemes();
+        System.out.println("init users :");
+        this.initUsers();
 
     }
 
@@ -64,10 +71,26 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         return themes;
     }
 
+    public ArrayList<String> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<String> users) {
+        this.users = users;
+    }
+
     public void initThemes() {
         for(Theme theme : Theme.values()){
             this.themes.add(theme.name());
         }
+    }
+
+    public void initUsers() {
+        for(Bavard bav : bat.getBavards()){
+            System.out.println("Username to add :" + bav.getUsername());
+            users.add(bav.getUsername());
+        }
+        users.add(this.username);
     }
 
     /* Fonction qui permet d'ajouter le message reçu à la liste de hashmap messageReceived,
