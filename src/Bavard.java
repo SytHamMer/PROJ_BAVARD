@@ -15,7 +15,7 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
     private DefaultListModel<String> messageListModel = new DefaultListModel<>();
 
-    private ArrayList<Theme> themes = new ArrayList<>(Arrays.asList(Theme.values()));
+    private ArrayList<String> themes = new ArrayList<>();
 
     // Constructeur
     public Bavard(String username, String password) {
@@ -54,12 +54,14 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         return username;
     }
 
-    public ArrayList<Theme> getThemes() {
+    public ArrayList<String> getThemes() {
         return themes;
     }
 
-    public void setThemes(ArrayList<Theme> themes) {
-        this.themes = themes;
+    public void setThemes() {
+        for(Theme theme : Theme.values()){
+            this.themes.add(theme.name());
+        }
     }
 
     /* Fonction qui permet d'ajouter le message reçu à la liste de hashmap messageReceived,
@@ -98,24 +100,34 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     }
     @Override
     /* Récupère le message et l'affiche dans la console et l'ajoute aux messages recus
+    Avant de récupérer on regarde si le thème du message est présent dans la liste des thèmes
+    autorisé par le bavard
 
      */
     public void newMessage(PapotageEvent event) {
-        System.out.println(this.username + " a bien recu le message.");
-        System.out.println(event.getSujet());
-        System.out.println(event.getText());
-        System.out.println(event.getTheme().name());
-        System.out.println("Ecrit par : "+ event.getBavard());
-        String text = event.getText();
-        String sujet = event.getSujet();
-        String author = event.getBavard();
-        Theme theme = event.getTheme();
-        HashMap<String,String> message = new HashMap<>();
-        message.put("sujet",sujet);
-        message.put("text",text);
-        message.put("auteur",author);
-        message.put("theme",theme.name());
-        this.addMessageReceived(message);
+
+        for (String bavTheme : themes){
+            String theme = event.getTheme().name();
+            if(bavTheme == theme){
+                System.out.println(this.username + " a bien recu le message.");
+                System.out.println(event.getSujet());
+                System.out.println(event.getText());
+                System.out.println(event.getTheme().name());
+                System.out.println("Ecrit par : "+ event.getBavard());
+                String text = event.getText();
+                String sujet = event.getSujet();
+                String author = event.getBavard();
+                HashMap<String,String> message = new HashMap<>();
+                message.put("sujet",sujet);
+                message.put("text",text);
+                message.put("auteur",author);
+                message.put("theme",theme);
+                this.addMessageReceived(message);
+                break;
+
+            }
+        }
+
 
 
     }
