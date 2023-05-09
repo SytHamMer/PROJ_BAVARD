@@ -125,7 +125,6 @@ public class Batiment {
         if(this.getBavard(username)==null){
             Bavard b = new Bavard(username, password);
             this.bavards.add(b);
-            this.bavards.add(b);
             this.concierge.addPapotageListener(b);
             this.getBavard(b).setConnected(true);
             this.concierge.addOnlineBavardListener(b);

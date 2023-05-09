@@ -59,12 +59,23 @@ public class BavardInterface extends JFrame {
         title.setFont(new Font("Sans Serif", Font.PLAIN, 30));
         this.add("North",title);
 
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        JPanel mainPanelTop = new JPanel();
+        JButton themeBtn = new JButton("Theme");
+        JButton userBtn = new JButton("Utilisateur");
+        mainPanelTop.add(themeBtn);
+        mainPanelTop.add(userBtn);
+        mainPanel.add("North", mainPanelTop);
+
+        themeBtn.addActionListener(e -> showThemeFrame());
+        userBtn.addActionListener(e -> showUserFrame());
         // Apperçu des messages reçus sous forme de liste, avec possibilité de
         // faire defiler les messages s'ils sont trop nombreux
         ArrayList<HashMap<String,String>> messages = bav.getMessageReceived();
         JList messList = new JList<>(bav.getMessageListModel());
         JScrollPane messageSP = new JScrollPane(messList);
-        this.add("Center", messageSP);
+        mainPanel.add("Center", messageSP);
+        this.add("Center", mainPanel);
 
         //Lecture des messages après appui dessus dans la liste
         messList.addListSelectionListener(new ListSelectionListener() {
@@ -182,17 +193,21 @@ public class BavardInterface extends JFrame {
         this.setSize(500, 320);
         this.setLayout(new BorderLayout());
 
-        // Bar en haut de l'interface
-        JPanel topBar = new JPanel();
+        // Barre en haut de l'interface
+        JPanel topBar = new JPanel(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        JPanel choicePanel = new JPanel(new GridLayout(2,2));
         JTextField sujetTf = new JTextField(20);
         JButton backBtn = new JButton("Retour"); //Bouton retour à l'interface principale
         JButton sendBtn = new JButton("Envoyer"); //Bouton retour + envoi message
         JComboBox menu = new JComboBox<>(Theme.values());
         topBar.add(backBtn);
-        topBar.add(new JLabel("Sujet : "));
-        topBar.add(sujetTf);
+        choicePanel.add(new JLabel("Sujet : "));
+        choicePanel.add(sujetTf);
+        choicePanel.add(new JLabel("Theme : "));
+        choicePanel.add(menu);
+        topBar.add(choicePanel);
         topBar.add(sendBtn);
-        topBar.add(menu);
         menu.addActionListener(e -> getTheme(menu));
         this.add("North", topBar);
 
@@ -210,5 +225,13 @@ public class BavardInterface extends JFrame {
     public Theme getTheme(JComboBox menu){
         Theme theme = (Theme) menu.getSelectedItem();
         return theme;
+    }
+
+    public void showThemeFrame(){
+        ThemeFrame tf = new ThemeFrame();
+    }
+
+    public void showUserFrame(){
+        UserFrame uf = new UserFrame(batiment);
     }
 }

@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: Check before addMessage if the subject and the text is not empty">
-      <change afterPath="$PROJECT_DIR$/src/Theme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ThemeFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_08_19_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_08_19__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_08_56_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_08_56__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_10_40_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_10_40__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Concierge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Concierge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConnexionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnexionInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PapotageEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PapotageEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PapotageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PapotageListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
