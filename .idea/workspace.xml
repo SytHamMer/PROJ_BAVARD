@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: Check before addMessage if the subject and the text is not empty">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[ADD]: Get selected CheckBox in ThemeFrame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ThemeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ThemeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683475182458</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="[ADD]: Get selected CheckBox in ThemeFrame">
+      <created>1683636845624</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683636845624</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,6 +231,7 @@
     <MESSAGE value="[FIX]: The multpile message open when we click on one is fix" />
     <MESSAGE value="[FIX]: Put fonction out of addActionListener and start comment code" />
     <MESSAGE value="[FIX]: Check before addMessage if the subject and the text is not empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX]: Check before addMessage if the subject and the text is not empty" />
+    <MESSAGE value="[ADD]: Get selected CheckBox in ThemeFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADD]: Get selected CheckBox in ThemeFrame" />
   </component>
 </project>
