@@ -230,7 +230,7 @@ public class BavardInterface extends JFrame {
     }
 
     public void showThemeFrame(){
-        ThemeFrame tf = new ThemeFrame();
+        ThemeFrame tf = new ThemeFrame(bav);
     }
 
     public void showUserFrame(){
