@@ -28,7 +28,6 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         this.password = password;
         this.bat = bat;
         this.initThemes();
-        System.out.println("init users :");
         this.initUsers();
         for(Bavard bav : bat.getBavards()){
             bav.getUsers().add(username);
@@ -91,7 +90,6 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
 
     public void initUsers() {
         for(Bavard bav : bat.getBavards()){
-            System.out.println("Username to add :" + bav.getUsername());
             users.add(bav.getUsername());
         }
         users.add(this.username);
@@ -103,7 +101,6 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
          */
     public void addMessageReceived(HashMap<String,String> m){
         this.messageReceived.add(m);
-        System.out.println(m);
         String sujet = m.get("sujet");
         String auteur = m.get("auteur");
         String texte = m.get("text");

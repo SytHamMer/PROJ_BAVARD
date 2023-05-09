@@ -19,7 +19,6 @@ public class ThemeFrame extends JFrame {
         int nbCheck = Theme.values().length;
         int nbCol = nbCheck / 5;
         this.choicePanel = new JPanel(new GridLayout(5,nbCol));
-        System.out.println(bav.getThemes());
         for(Theme value : Theme.values()){
             JCheckBox newCB = new JCheckBox(value.name());
             if(bav.getThemes().contains(value.name())){
@@ -52,7 +51,6 @@ public class ThemeFrame extends JFrame {
                 this.selectedTheme.add(checkbox.getText());
             }
         }
-        System.out.println(this.selectedTheme);
         bav.setThemes(selectedTheme);
         this.setVisible(false);
 

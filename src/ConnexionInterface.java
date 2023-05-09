@@ -24,7 +24,6 @@ public class ConnexionInterface extends JFrame {
 
         // Password panel (label + textfield)
         JLabel pwdLabel = new JLabel("Password : ");
-        System.out.println(pwdLabel.getSize());
         this.pwdTf = new JPasswordField(20);
         JPanel pwdPanel = new JPanel();
         pwdPanel.add(pwdLabel);
@@ -80,7 +79,6 @@ public class ConnexionInterface extends JFrame {
                     batiment.sendOnlineNotification(batiment.getBavard(login));
                     batiment.addOnlineBavard(batiment.getBavard(login));
                     System.out.println(login + " est connecté");
-                    System.out.println(batiment.getOnlineBavard());
                     BavardInterface bavardInterface = new BavardInterface(batiment.getBavard(login),true,batiment);
                     bavardInterface.setVisible(true);
                 }
@@ -103,7 +101,6 @@ public class ConnexionInterface extends JFrame {
 
         String login = loginTf.getText();
         String password = pwdTf.getText();
-        System.out.println(login);
         if(batiment.getBavard(login) == null){
                 batiment.addBavards(login,password);
                 //Appel de la fonction connectBavard() uniquement si ce dernier n'existait pas avant

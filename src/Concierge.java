@@ -101,7 +101,6 @@ public class Concierge implements PapotageListener, OnlineBavardListener, Offlin
         System.out.println(text);
         System.out.println("FROM:" + author);
 
-        System.out.println("Liste des destinataires :" + destinataires);
         for (PapotageListener p : destinataires) {
             p.newMessage(event);
 

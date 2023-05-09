@@ -60,7 +60,6 @@ public class UserFrame extends JFrame {
                 this.selectedUsers.add(checkbox.getText());
             }
         }
-        System.out.println(this.selectedUsers);
         bav.setUsers(selectedUsers);
         this.setVisible(false);
     }
