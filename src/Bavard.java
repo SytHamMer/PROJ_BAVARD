@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBavardListener {
 
     // Attributs
+
     private ArrayList<PapotageListener> destinataires = new ArrayList<PapotageListener>();
     private ArrayList<OnlineBavardListener> onlineBavards = new ArrayList<>();
     private ArrayList<OfflineBavardListener> offlineBavards = new ArrayList<>();

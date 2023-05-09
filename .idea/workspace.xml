@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ThemeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ThemeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserFrame.java" afterDir="false" />
-    </list>
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683641869751</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="[UPDATE]: UserFrame">
+      <created>1683644830673</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683644830673</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +244,7 @@
     <MESSAGE value="[FIX]: Check before addMessage if the subject and the text is not empty" />
     <MESSAGE value="[ADD]: Get selected CheckBox in ThemeFrame" />
     <MESSAGE value="[UPDATE]: Make all checkboxes automatically checked in ThemeFrame" />
-    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE]: Make all checkboxes automatically checked in ThemeFrame" />
+    <MESSAGE value="[UPDATE]: UserFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE]: UserFrame" />
   </component>
 </project>
