@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBavardListener {
@@ -13,6 +14,8 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     private boolean isConnected;
     private ArrayList<HashMap<String,String>> messageReceived = new ArrayList<>();
     private DefaultListModel<String> messageListModel = new DefaultListModel<>();
+
+    private ArrayList<Theme> themes = new ArrayList<>(Arrays.asList(Theme.values()));
 
     // Constructeur
     public Bavard(String username, String password) {
@@ -29,6 +32,7 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
     public DefaultListModel<String> getMessageListModel() {
         return messageListModel;
     }
+
 
     public ArrayList<HashMap<String, String>> getMessageReceived() {
         return messageReceived;
@@ -50,10 +54,18 @@ public class Bavard implements PapotageListener, OnlineBavardListener, OfflineBa
         return username;
     }
 
+    public ArrayList<Theme> getThemes() {
+        return themes;
+    }
+
+    public void setThemes(ArrayList<Theme> themes) {
+        this.themes = themes;
+    }
+
     /* Fonction qui permet d'ajouter le message reçu à la liste de hashmap messageReceived,
-    ainsi que sous forme de string dans la defaultModelList messageListModel, utilisee pour
-    afficher les messages dans l'interface
-     */
+        ainsi que sous forme de string dans la defaultModelList messageListModel, utilisee pour
+        afficher les messages dans l'interface
+         */
     public void addMessageReceived(HashMap<String,String> m){
         this.messageReceived.add(m);
         System.out.println(m);

@@ -24,6 +24,7 @@ public class ConnexionInterface extends JFrame {
 
         // Password panel (label + textfield)
         JLabel pwdLabel = new JLabel("Password : ");
+        System.out.println(pwdLabel.getSize());
         this.pwdTf = new JPasswordField(20);
         JPanel pwdPanel = new JPanel();
         pwdPanel.add(pwdLabel);

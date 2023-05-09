@@ -19,12 +19,14 @@ public class ThemeFrame extends JFrame {
             this.choicePanel.add(new JCheckBox(value.name()));
         }
         this.add("Center", choicePanel);
+        JButton annuler = new JButton("Annuler");
         JButton valider = new JButton("Valider");
         valider.addActionListener(e-> validation());
         this.add("South", valider);
 
         this.setVisible(true);
     }
+
 
     public void validation(){
         ArrayList<JCheckBox> checkboxes = getAllCheckBoxes(this.choicePanel);
