@@ -13,6 +13,8 @@ public class BavardInterface extends JFrame {
     private Batiment batiment;
 
 
+
+
     /* Cette interface est double il y a "deux fenêtre" pour réaliser le switch entre les deux on utilise un bouton
     et la variable isDefaultInterface cette dernière est modifié à chaque changement de fenetre car c'est seulement un
     switch entre deux fenêtre
@@ -234,4 +236,7 @@ public class BavardInterface extends JFrame {
     public void showUserFrame(){
         UserFrame uf = new UserFrame(batiment);
     }
+
+
+
 }
