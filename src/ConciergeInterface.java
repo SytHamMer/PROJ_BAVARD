@@ -8,6 +8,10 @@ public class ConciergeInterface extends JFrame {
     // attributs
     private Batiment bat;
     private Concierge concierge;
+
+
+
+    //Constructeur
     public ConciergeInterface(Batiment bat){
 
         // Initialisation de la fenetre

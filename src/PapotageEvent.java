@@ -1,7 +1,7 @@
 import java.util.EventObject;
 
 public class PapotageEvent extends EventObject {
-
+    //Attributs
     private String sujet;
     private String text;
 
@@ -9,6 +9,17 @@ public class PapotageEvent extends EventObject {
 
     private Theme theme;
 
+    //Constructeur
+    public PapotageEvent(Object source, String sujet, String text,String b,Theme theme){
+        super(source);
+        this.sujet=sujet;
+        this.text=text;
+        this.bavard =b;
+        this.theme = theme;
+
+    }
+
+    //getters and setters
     public String getSujet() {
         return sujet;
     }
@@ -25,12 +36,5 @@ public class PapotageEvent extends EventObject {
         return bavard;
     }
 
-    public PapotageEvent(Object source, String sujet, String text,String b,Theme theme){
-        super(source);
-        this.sujet=sujet;
-        this.text=text;
-        this.bavard =b;
-        this.theme = theme;
 
-    }
 }

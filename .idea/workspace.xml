@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: setTheme and initTheme">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a0cbe0b0-45a3-4697-9e97-0558f1b61366" name="Changes" comment="[FIX]: Clean useless prints">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bavard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bavard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BavardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BavardInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConciergeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConciergeInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConnexionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnexionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OfflineBavardEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OfflineBavardEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OnlineBavardEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OnlineBavardEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683644830673</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="[FIX]: final fix">
+      <created>1683646451256</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683646451256</updated>
+    </task>
+    <task id="LOCAL-00023" summary="[FIX]: Clean useless prints">
+      <created>1683646698672</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683646698672</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,6 +268,8 @@
     <MESSAGE value="[ADD]: Get selected CheckBox in ThemeFrame" />
     <MESSAGE value="[UPDATE]: Make all checkboxes automatically checked in ThemeFrame" />
     <MESSAGE value="[UPDATE]: UserFrame" />
-    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE]: UserFrame" />
+    <MESSAGE value="[FIX]: final fix" />
+    <MESSAGE value="[FIX]: Clean useless prints" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX]: Clean useless prints" />
   </component>
 </project>

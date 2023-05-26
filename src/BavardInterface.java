@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BavardInterface extends JFrame {
+
+    //Attributs
     private Bavard bav;
 
     private boolean isDefaultInterface;
@@ -18,7 +20,10 @@ public class BavardInterface extends JFrame {
     /* Cette interface est double il y a "deux fenêtre" pour réaliser le switch entre les deux on utilise un bouton
     et la variable isDefaultInterface cette dernière est modifié à chaque changement de fenetre car c'est seulement un
     switch entre deux fenêtre
+
      */
+
+    //Constructeur
     public BavardInterface(Bavard bav, boolean defaultInterface,Batiment bat){
         this.bav = bav;
         this.batiment = bat;
@@ -31,10 +36,8 @@ public class BavardInterface extends JFrame {
     }
 
 
+    //getters and setters
 
-    public boolean isDefaultInterface() {
-        return isDefaultInterface;
-    }
 
     public void setDefaultInterface(boolean defaultInterface) {
         isDefaultInterface = defaultInterface;
@@ -46,6 +49,16 @@ public class BavardInterface extends JFrame {
 
     public void setBav(Bavard bav) {
         this.bav = bav;
+    }
+
+    public Theme getTheme(JComboBox menu){
+        Theme theme = (Theme) menu.getSelectedItem();
+        return theme;
+    }
+
+
+    public boolean isDefaultInterface() {
+        return isDefaultInterface;
     }
 
     // Fenetre par defaut qui s'affiche quand un utilisateur se connecte
@@ -221,11 +234,8 @@ public class BavardInterface extends JFrame {
         this.setVisible(true);
     }
 
-    public Theme getTheme(JComboBox menu){
-        Theme theme = (Theme) menu.getSelectedItem();
-        return theme;
-    }
 
+    //Créer des fenêtres avec la liste des thèmes ou utilisateurs et leur checkbox
     public void showThemeFrame(){
         ThemeFrame tf = new ThemeFrame(bav);
     }

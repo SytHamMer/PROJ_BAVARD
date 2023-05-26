@@ -7,6 +7,9 @@ public class ConnexionInterface extends JFrame {
     private Batiment batiment;
     private JTextField loginTf;
     private JPasswordField pwdTf;
+
+
+    //Constructeur
     public ConnexionInterface(Batiment batiment){
 
         // Initialisation de la fenetre
@@ -48,6 +51,8 @@ public class ConnexionInterface extends JFrame {
         // affichage de la fenetre
         this.setVisible(true);
     }
+
+
 
 
     /* Fonction qui s'execute lorsqu'on appuie sur le bouton "signIn" elle verifie l'identité de l'utilisateur

@@ -5,14 +5,14 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class UserFrame extends JFrame {
-
+    // Attributs
     private JPanel choicePanel;
 
     private Bavard bav;
 
     private ArrayList<String> selectedUsers = new ArrayList<>();
 
-
+    //Constructeur
     public UserFrame(Batiment bat, Bavard bav){
         this.bav = bav;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,9 +43,29 @@ public class UserFrame extends JFrame {
         this.setVisible(true);
     }
 
+    //getters and setters
+
+    //Fonction qui récupère dans une liste l'ensemble des JCheckbox du panel
+    public static ArrayList<JCheckBox> getAllCheckBoxes(Container container) {
+        Component[] components = container.getComponents();
+        ArrayList<JCheckBox> result = new ArrayList<>();
+
+        for (Component component : components) {
+            if (component instanceof JCheckBox) {
+                result.add((JCheckBox) component);
+            } else if (component instanceof Container) {
+                result.addAll(getAllCheckBoxes((Container) component));
+            }
+        }
+        return result;
+    }
+
     public ArrayList<String> getSelectedUsers() {
         return selectedUsers;
     }
+
+
+
 
     public void annuler(){
         this.setVisible(false);
@@ -64,19 +84,6 @@ public class UserFrame extends JFrame {
         this.setVisible(false);
     }
 
-    //Fonction qui récupère dans une liste l'ensemble des JCheckbox du panel
-    public static ArrayList<JCheckBox> getAllCheckBoxes(Container container) {
-        Component[] components = container.getComponents();
-        ArrayList<JCheckBox> result = new ArrayList<>();
 
-        for (Component component : components) {
-            if (component instanceof JCheckBox) {
-                result.add((JCheckBox) component);
-            } else if (component instanceof Container) {
-                result.addAll(getAllCheckBoxes((Container) component));
-            }
-        }
-        return result;
-    }
 }
 

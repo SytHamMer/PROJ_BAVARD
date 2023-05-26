@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Batiment {
-    //faire une version où les bavards peuvent choisir de recevoir ou non les messages du batiment
+
+
+    // Attributs
     private ArrayList<Bavard> bavards = new ArrayList<>();
 
     private String nom;
@@ -17,24 +19,19 @@ public class Batiment {
         return onlineListModel;
     }
 
+    //Constructeur
     public void Batiment(String nom, Concierge c){
         this.nom = nom;
         this.concierge = c;
     }
 
+    //getters and setters
     public ArrayList<Bavard> getOnlineBavard() {
         return OnlineBavard;
     }
 
-    public void addOnlineBavard(Bavard b){
-        this.getOnlineBavard().add(b);
-        this.onlineListModel.addElement(b.getUsername());
-    }
 
-    public void removeOnlineBavard(Bavard b){
-        this.getOnlineBavard().remove(b);
-        this.onlineListModel.removeElement(b.getUsername());
-    }
+
 
 
     public String getNom() {
@@ -72,7 +69,7 @@ public class Batiment {
     }
 
 
-    //Renvoie le bavard corresponant au bavard b SI il est présent dans le batiment
+    //Renvoie le bavard correspondant au bavard b SI il est présent dans le batiment
     public Bavard getBavard(Bavard b){
         int cpt = 0;
         while (cpt<bavards.size()){
@@ -87,6 +84,20 @@ public class Batiment {
         return null;
 
     }
+
+
+
+
+    public void addOnlineBavard(Bavard b){
+        this.getOnlineBavard().add(b);
+        this.onlineListModel.addElement(b.getUsername());
+    }
+
+    public void removeOnlineBavard(Bavard b){
+        this.getOnlineBavard().remove(b);
+        this.onlineListModel.removeElement(b.getUsername());
+    }
+
 
     //Envoie une notification dès que le bavard en argument se connecte
     public void sendOnlineNotification(Bavard bavard) {
